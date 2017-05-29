@@ -1,0 +1,10 @@
+framework module FileManagerShortcutKit {
+  umbrella header "FileManagerShortcutKit.h"
+
+  export *
+  module * { export * }
+}
+
+module FileManagerShortcutKit.Swift {
+    header "FileManagerShortcutKit-Swift.h"
+}

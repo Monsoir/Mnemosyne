@@ -1,0 +1,10 @@
+framework module AuthorizationKit {
+  umbrella header "AuthorizationKit.h"
+
+  export *
+  module * { export * }
+}
+
+module AuthorizationKit.Swift {
+    header "AuthorizationKit-Swift.h"
+}
