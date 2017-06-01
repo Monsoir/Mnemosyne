@@ -21,6 +21,8 @@
 		F94422E11EDBF56200155A18 /* AuthorizationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F94423721EDBFD1C00155A18 /* FileManagerShortcutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */; };
 		F94423741EDBFD2700155A18 /* FileManagerShortcutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F94423871EE0073500155A18 /* Modelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94423861EE0073500155A18 /* Modelable.swift */; };
+		F94423891EE007E400155A18 /* MneymonsyneViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94423881EE007E400155A18 /* MneymonsyneViewable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		F92214FC1ED6CCA0001178F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AuthorizationKit.framework; sourceTree = "<group>"; };
 		F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FileManagerShortcutKit.framework; sourceTree = "<group>"; };
+		F94423861EE0073500155A18 /* Modelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modelable.swift; sourceTree = "<group>"; };
+		F94423881EE007E400155A18 /* MneymonsyneViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MneymonsyneViewable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 		F92214D91ED6CCA0001178F2 /* mnemosyne */ = {
 			isa = PBXGroup;
 			children = (
+				F94423811EDFFF5000155A18 /* protocols */,
 				F92214DA1ED6CCA0001178F2 /* AppDelegate.swift */,
 				F92214DC1ED6CCA0001178F2 /* ViewController.swift */,
 				F92214DE1ED6CCA0001178F2 /* Main.storyboard */,
@@ -196,6 +201,15 @@
 				F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */,
 			);
 			path = MyFrameworks;
+			sourceTree = "<group>";
+		};
+		F94423811EDFFF5000155A18 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F94423861EE0073500155A18 /* Modelable.swift */,
+				F94423881EE007E400155A18 /* MneymonsyneViewable.swift */,
+			);
+			path = protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,7 +498,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92214DD1ED6CCA0001178F2 /* ViewController.swift in Sources */,
+				F94423891EE007E400155A18 /* MneymonsyneViewable.swift in Sources */,
 				F92214DB1ED6CCA0001178F2 /* AppDelegate.swift in Sources */,
+				F94423871EE0073500155A18 /* Modelable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
