@@ -16,6 +16,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let tabVC = UITabBarController()
+        
+        // 生成各个控制器
+        let clipVC = ClipViewController()
+        clipVC.tabBarItem = ClipViewController.myTabbarItem()
+        clipVC.view.backgroundColor = .red
+        
+        let soundVC = SoundViewController()
+        soundVC.tabBarItem = SoundViewController.myTabbarItem()
+        soundVC.view.backgroundColor = .yellow
+        
+        let picVC = PicViewController()
+        picVC.tabBarItem = PicViewController.myTabbarItem()
+        picVC.view.backgroundColor = .orange
+        
+        let settingVC = SettingViewController()
+        settingVC.tabBarItem = SettingViewController.myTabbarItem()
+        settingVC.view.backgroundColor = .brown
+        
+        tabVC.viewControllers = [clipVC, soundVC, picVC, settingVC]
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
