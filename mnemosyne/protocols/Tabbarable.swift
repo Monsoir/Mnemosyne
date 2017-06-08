@@ -17,8 +17,8 @@ protocol Tabbarable: class {
     
     /// 将 View controller 的 tab bar item 图标居中
     ///
-    /// - Parameter tabbarItem: <#tabbarItem description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter tabbarItem: 设置的 tab bar item
+    /// - Returns: 设置完成后的 tab bar item
     static func centerTabbarItemIcon(tabbarItem: UITabBarItem) -> UITabBarItem
 }
 

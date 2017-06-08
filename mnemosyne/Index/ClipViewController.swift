@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ClipViewController: UIViewController {
+class ClipViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = NSLocalizedString("CLIP", comment: "")
+        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +27,7 @@ class ClipViewController: UIViewController {
 
 extension ClipViewController: Tabbarable {
     static func myTabbarItem() -> UITabBarItem {
-        let item = UITabBarItem(title: "", image: #imageLiteral(resourceName: "tab-bar-video-normal").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "tab-bar-video-selected").withRenderingMode(.alwaysOriginal))
+        let item = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "tab-bar-video-normal").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "tab-bar-video-selected").withRenderingMode(.alwaysOriginal))
         
         return centerTabbarItemIcon(tabbarItem: item)
         

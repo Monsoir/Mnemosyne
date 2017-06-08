@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  mnemosyne
+
+  Created by Mon on 08/06/2017.
+  Copyright © 2017 wenyongyang. All rights reserved.
+*/
+
+"CLIP" = "短视频";
+"SOUND" = "录音";
+"PIC" = "图片";
+"SETTING" = "设置";

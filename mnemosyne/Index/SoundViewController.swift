@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SoundViewController: UIViewController {
+class SoundViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = NSLocalizedString("SOUND", comment: "")
+        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {

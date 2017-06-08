@@ -8,12 +8,14 @@
 
 import UIKit
 
-class PicViewController: UIViewController {
+class PicViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = NSLocalizedString("PIC", comment: "")
+        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {

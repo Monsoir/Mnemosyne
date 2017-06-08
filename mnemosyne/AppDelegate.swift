@@ -19,24 +19,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabVC = UITabBarController()
         
+        func buildNavigationController(embeded viewController: UIViewController) -> UINavigationController {
+            let nc = UINavigationController(rootViewController: viewController)
+            if #available(iOS 11.0, *) {
+                nc.navigationBar.prefersLargeTitles = true
+            }
+            
+            return nc
+        }
+        
         // 生成各个控制器
         let clipVC = ClipViewController()
         clipVC.tabBarItem = ClipViewController.myTabbarItem()
         clipVC.view.backgroundColor = .red
+        let clipNC = buildNavigationController(embeded: clipVC)
         
         let soundVC = SoundViewController()
         soundVC.tabBarItem = SoundViewController.myTabbarItem()
         soundVC.view.backgroundColor = .yellow
+        let soundNC = buildNavigationController(embeded: soundVC)
         
         let picVC = PicViewController()
         picVC.tabBarItem = PicViewController.myTabbarItem()
         picVC.view.backgroundColor = .orange
+        let picNC = buildNavigationController(embeded: picVC)
         
         let settingVC = SettingViewController()
         settingVC.tabBarItem = SettingViewController.myTabbarItem()
         settingVC.view.backgroundColor = .brown
+        let settingNC = buildNavigationController(embeded: settingVC)
         
-        tabVC.viewControllers = [clipVC, soundVC, picVC, settingVC]
+        tabVC.viewControllers = [clipNC, soundNC, picNC, settingNC]
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabVC

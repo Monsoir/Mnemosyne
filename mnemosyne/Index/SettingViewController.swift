@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = NSLocalizedString("SETTING", comment: "")
+        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {

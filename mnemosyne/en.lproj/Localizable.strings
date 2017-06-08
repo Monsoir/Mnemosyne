@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  mnemosyne
+
+  Created by Mon on 08/06/2017.
+  Copyright © 2017 wenyongyang. All rights reserved.
+*/
+
+
+"CLIP" = "Clips";
+"SOUND" = "Sounds";
+"PIC" = "Pics";
+"SETTING" = "Setting";
