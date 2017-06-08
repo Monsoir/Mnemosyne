@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FileManagerShortcutKit-Swift.h</key>
 		<data>
-		jzIHZqOMtcTPl1vRA4p5H3gjcdg=
+		CColecBiW8yRYid2Br+RD/O853w=
 		</data>
 		<key>Headers/FileManagerShortcutKit.h</key>
 		<data>
@@ -14,27 +14,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		p5GvJ7x3B2Fzd7qsXkjt810j7PE=
+		549LF540nc5db5nS7wNsVj+/aX8=
 		</data>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/i386.swiftdoc</key>
 		<data>
-		9rPuCKcj8McNtcrSWomTPylfYCc=
+		67hIXEuEDAKnZQF0AitpUlkCoeM=
 		</data>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		CBkSl8mnf3JisO3713ipOG19av4=
+		6lknggeltRpZofULUP4DUPoVJ6s=
 		</data>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		dgq1L7wtAoGw3M78KEVgrELCLls=
+		q86Hwa0mCY95PFozNKIJAr+Xw2U=
 		</data>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		+Q5hgGG0r3MNmRtC2nr0BAg06cs=
+		WkFyXuba3OWbQgSiXR/fFbUkXvA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		CsYU6LZirEkF7X/09+cE7Hdqu6g=
+		Y1nBir5M5TPmESunWxO50KoGcZc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jzIHZqOMtcTPl1vRA4p5H3gjcdg=
+			CColecBiW8yRYid2Br+RD/O853w=
 			</data>
 			<key>hash2</key>
 			<data>
-			DGYXE2c+63iAgEETM/rGV0Ao3OrcDiki8C8NSF6gRC4=
+			Lw29hpzIDMGbmwSZQI8jkYyXRZPF9MGgdBD0tseSMVc=
 			</data>
 		</dict>
 		<key>Headers/FileManagerShortcutKit.h</key>
@@ -65,55 +65,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9rPuCKcj8McNtcrSWomTPylfYCc=
+			67hIXEuEDAKnZQF0AitpUlkCoeM=
 			</data>
 			<key>hash2</key>
 			<data>
-			U7BGbAMj7mZp88aaRX1GR1m/jeVYU34GKgnXTojqy/o=
+			L5F/7MPHh5Bo56ao42xRsgNad/zUaI9ZBU29cglIHC8=
 			</data>
 		</dict>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CBkSl8mnf3JisO3713ipOG19av4=
+			6lknggeltRpZofULUP4DUPoVJ6s=
 			</data>
 			<key>hash2</key>
 			<data>
-			wssA67tujctUQIAbUgxuhw/ds+99itsMh0fIiL+3IP4=
+			eMBP0TBNvJyGXOZmjKbUldIfsl8nelFpb3EU1D3xvgk=
 			</data>
 		</dict>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dgq1L7wtAoGw3M78KEVgrELCLls=
+			q86Hwa0mCY95PFozNKIJAr+Xw2U=
 			</data>
 			<key>hash2</key>
 			<data>
-			ePbTGGCnVIE0I5yarpXVO8rwkA88txNle/OVkmcldL0=
+			WkWZq++FPXYcNmGG1YcHgc0x50rGenjmaw/5h0TLcrI=
 			</data>
 		</dict>
 		<key>Modules/FileManagerShortcutKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+Q5hgGG0r3MNmRtC2nr0BAg06cs=
+			WkFyXuba3OWbQgSiXR/fFbUkXvA=
 			</data>
 			<key>hash2</key>
 			<data>
-			XS8kJ3zMpLzDmSeMTIJC6Pu5wrBk99oByAKlbH066wI=
+			C3FTgOjdXpuiuchJZcRwsI86mak6mqdGU8nh0KPvtys=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CsYU6LZirEkF7X/09+cE7Hdqu6g=
+			Y1nBir5M5TPmESunWxO50KoGcZc=
 			</data>
 			<key>hash2</key>
 			<data>
-			fYoAkXZgXVYIOrdZl/Lkkkn3yIo1EAS338IG2Qgo7Dw=
+			GLkRBjaRPvbeQtz/XSybqaPg+s4mjNOaG4qSTVGYqfQ=
 			</data>
 		</dict>
 	</dict>

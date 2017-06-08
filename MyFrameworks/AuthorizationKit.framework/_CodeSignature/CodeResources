@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AuthorizationKit-Swift.h</key>
 		<data>
-		+YTYzdtcClwJosdo+b5liBpwYPM=
+		zIvfOPhf8EpQuCSRcyrQc35Yk1Y=
 		</data>
 		<key>Headers/AuthorizationKit.h</key>
 		<data>
@@ -14,27 +14,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		SZ9BZdyD/aJHQMB9tf/LVxJkJ2E=
+		V+BnjgauQWGOEkLB24KheklchnA=
 		</data>
 		<key>Modules/AuthorizationKit.swiftmodule/i386.swiftdoc</key>
 		<data>
-		3wwnGWfrS4OJVU2xzjcrggpI9E8=
+		Dh0Q4n1ffHPLaxEkEa329J+qvHk=
 		</data>
 		<key>Modules/AuthorizationKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		HHyzpWHQsCZPwRm5ZiJbTJlLSSc=
+		BdbFqejwhxGxW0x6ZxJ5NN4radY=
 		</data>
 		<key>Modules/AuthorizationKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		Y1LzxsUvZMDP38s8DxboVPnomEs=
+		o1E/9778qCgc802omZoGlVWh9PE=
 		</data>
 		<key>Modules/AuthorizationKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		SX7HNbRVLy12P8ZF1mnaiYkEh6Y=
+		1TNLtgpGm16an3S0pYFbpLlKGKg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		1q0jRINqyf5f7UsMwrK5jziPh/U=
+		sN3z28feLaxhlmFqDWLLW06N1TE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+YTYzdtcClwJosdo+b5liBpwYPM=
+			zIvfOPhf8EpQuCSRcyrQc35Yk1Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			GtRly+Ro2HAKiE0EiMAsnQXWLeiVeR/ANHweP2pxFZ4=
+			4yHO/8/tmtp5/RTaX+6nIrntAs31i8KH4z7GRRxmw2Q=
 			</data>
 		</dict>
 		<key>Headers/AuthorizationKit.h</key>
@@ -65,55 +65,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3wwnGWfrS4OJVU2xzjcrggpI9E8=
+			Dh0Q4n1ffHPLaxEkEa329J+qvHk=
 			</data>
 			<key>hash2</key>
 			<data>
-			aWXP8n6R6Hsars2MxSrkqTgCIPvg5rb8fyKQswUkSD0=
+			TdDgVkTFaeh3ahCrIwNQ4bsSSHTpxjZyiBmNB2q9lAE=
 			</data>
 		</dict>
 		<key>Modules/AuthorizationKit.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HHyzpWHQsCZPwRm5ZiJbTJlLSSc=
+			BdbFqejwhxGxW0x6ZxJ5NN4radY=
 			</data>
 			<key>hash2</key>
 			<data>
-			U+sO3MWDGzBrg8NUC7HxsPzP7zbCqhXkp08SqUXEUpQ=
+			wplXslmStUxx4mXY1+LN5QP/jktyRaX/KQ1OFw1oazk=
 			</data>
 		</dict>
 		<key>Modules/AuthorizationKit.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y1LzxsUvZMDP38s8DxboVPnomEs=
+			o1E/9778qCgc802omZoGlVWh9PE=
 			</data>
 			<key>hash2</key>
 			<data>
-			GZHg/pvCQl9c63uF2Pqs2P7p1xfeBYF3BZLVEGaqCGo=
+			13hvSLqcrXPbxBN2sSLwRIErEROFyVCoTgDfTQGsyso=
 			</data>
 		</dict>
 		<key>Modules/AuthorizationKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SX7HNbRVLy12P8ZF1mnaiYkEh6Y=
+			1TNLtgpGm16an3S0pYFbpLlKGKg=
 			</data>
 			<key>hash2</key>
 			<data>
-			PDrmxiiKOzH5x7JIc42xmJEzIc6dn+X4HXumiu1iFBc=
+			Fx444XQwHX3DJmmAExMBWmS1ByATPPbB6d0PXP3E21E=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1q0jRINqyf5f7UsMwrK5jziPh/U=
+			sN3z28feLaxhlmFqDWLLW06N1TE=
 			</data>
 			<key>hash2</key>
 			<data>
-			FtU0GABdwI92HJIL29hsugRKSv5PmQagy0U5eeRlNpI=
+			zscpT5FX+etHDfkD2U/LMJgpBGPQTz7MfTX0go2g9kY=
 			</data>
 		</dict>
 	</dict>

@@ -7,4 +7,5 @@ framework module AuthorizationKit {
 
 module AuthorizationKit.Swift {
     header "AuthorizationKit-Swift.h"
+    requires objc
 }
