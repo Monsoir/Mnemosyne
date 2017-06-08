@@ -9,7 +9,16 @@
 import UIKit
 
 protocol Tabbarable: class {
+    
+    /// 设置 ViewController 的 tab bar item 样式
+    ///
+    /// - Returns: View controller 的 tab bar item
     static func myTabbarItem() -> UITabBarItem
+    
+    /// 将 View controller 的 tab bar item 图标居中
+    ///
+    /// - Parameter tabbarItem: <#tabbarItem description#>
+    /// - Returns: <#return value description#>
     static func centerTabbarItemIcon(tabbarItem: UITabBarItem) -> UITabBarItem
 }
 
