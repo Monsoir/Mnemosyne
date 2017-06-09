@@ -8,23 +8,44 @@
 
 import UIKit
 
-class SoundViewController: BaseViewController {
+class SoundViewController: AssetViewController {
+    
+    override class var CollectionViewCellClass: AssetPreviewCell.Type {
+        get {
+            return SoundCollectionViewCell.self
+        }
+    }
+    
+    override var navigationBarTitle: String {
+        get {
+            return NSLocalizedString("SOUND", comment: "")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = NSLocalizedString("SOUND", comment: "")
-        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SoundCollectionViewCell.reuseIdentifier(), for: indexPath) as? SoundCollectionViewCell else {
+            fatalError("unexpected cell in collection view")
+        }
+        
+        return cell
+    }
 
 }
-
 
 extension SoundViewController: Tabbarable {
     static func myTabbarItem() -> UITabBarItem {

@@ -8,13 +8,14 @@
 
 import Foundation
 
-enum MnemonsyneAssetType {
+enum MnemosyneAssetType {
+    case none
     case clip // 视频
     case sound // 音频
     case pic // 图片
 }
 
-protocol MnemonsyneAssetable {
+protocol MnemosyneAssetable {
     
     /// 创建日期
     var createDateTime: String { get set }
@@ -23,7 +24,7 @@ protocol MnemonsyneAssetable {
     var name: String { get set }
     
     /// 类型
-    var type: MnemonsyneAssetType { get set }
+    var type: MnemosyneAssetType { get set }
     
     /// 存储位置
     var location: String { get set }

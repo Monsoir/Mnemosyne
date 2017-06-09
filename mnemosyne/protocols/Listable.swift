@@ -9,7 +9,7 @@
 import UIKit
 
 protocol Listable {
-    var assets: [MnemonsyneAssetable]? { get set }
+//    var assets: [MnemonsyneAssetable]? { get set }
     func setupSubviews()
     func setupNavigationBar()
 }

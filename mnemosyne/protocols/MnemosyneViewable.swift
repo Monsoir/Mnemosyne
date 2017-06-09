@@ -1,14 +1,16 @@
 //
-//  MneymonsyneViewable.swift
+//  MnemosyneViewable.swift
 //  mnemosyne
 //
-//  Created by Mon on 01/06/2017.
+//  Created by Mon on 09/06/2017.
 //  Copyright © 2017 wenyongyang. All rights reserved.
 //
 
 import UIKit
 
 protocol CollectionViewPreviewable {
+    
+    var assetType: MnemosyneAssetType { get }
     
     /// 缩略图预览
     func thumbnailPreview()
@@ -18,6 +20,7 @@ protocol CollectionViewPreviewable {
 }
 
 extension CollectionViewPreviewable where Self: UICollectionViewCell {
+    
     func thumbnailPreview() {
         
     }

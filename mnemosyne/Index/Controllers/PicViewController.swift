@@ -8,19 +8,41 @@
 
 import UIKit
 
-class PicViewController: BaseViewController {
+class PicViewController: AssetViewController {
+    
+    override class var CollectionViewCellClass: AssetPreviewCell.Type {
+        get {
+            return PicCollectionViewCell.self
+        }
+    }
+    
+    override var navigationBarTitle: String {
+        get {
+            return NSLocalizedString("PIC", comment: "")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = NSLocalizedString("PIC", comment: "")
-        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicCollectionViewCell.reuseIdentifier(), for: indexPath) as? PicCollectionViewCell else {
+            fatalError("unexpected cell in collection view")
+        }
+        
+        return cell
     }
 
 }

@@ -9,13 +9,17 @@
 import UIKit
 
 class SettingViewController: BaseViewController {
+    
+    override var navigationBarTitle: String {
+        get {
+            return NSLocalizedString("SETTING", comment: "")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = NSLocalizedString("SETTING", comment: "")
-        tabBarItem.title = nil
     }
 
     override func didReceiveMemoryWarning() {
