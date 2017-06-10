@@ -10,9 +10,16 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
+    /// 导航栏 title
     var navigationBarTitle: String {
         get {
             return ""
+        }
+    }
+    
+    var navigationBarRightButton: UIBarButtonItem? {
+        get {
+            return nil
         }
     }
 

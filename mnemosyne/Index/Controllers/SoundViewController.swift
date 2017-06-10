@@ -21,6 +21,12 @@ class SoundViewController: AssetViewController {
             return NSLocalizedString("SOUND", comment: "")
         }
     }
+    
+    override var navigationBarRightButton: UIBarButtonItem? {
+        get {
+            return UIBarButtonItem(image: #imageLiteral(resourceName: "nav-take-audio").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(SoundViewController.record))
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +51,12 @@ class SoundViewController: AssetViewController {
         return cell
     }
 
+}
+
+extension SoundViewController {
+    func record() {
+        
+    }
 }
 
 extension SoundViewController: Tabbarable {

@@ -22,6 +22,12 @@ class ClipViewController: AssetViewController {
             return NSLocalizedString("CLIP", comment: "")
         }
     }
+    
+    override var navigationBarRightButton: UIBarButtonItem? {
+        get {
+            return UIBarButtonItem(image: #imageLiteral(resourceName: "nav-take-video").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(ClipViewController.record))
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +52,13 @@ class ClipViewController: AssetViewController {
         return cell
     }
 
+}
+
+// MARK: - Actions
+extension ClipViewController {
+    func record() {
+        
+    }
 }
 
 extension ClipViewController: Tabbarable {

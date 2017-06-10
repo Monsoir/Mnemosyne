@@ -32,13 +32,17 @@ class AssetViewController: BaseViewController, UICollectionViewDataSource, UICol
         
         return view
     }()
-
+    
+    override func loadView() {
+        view = collectionView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupNavigationBar()
-        setupSubviews()
+//        setupSubviews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,5 +74,6 @@ extension AssetViewController: Listable {
     func setupNavigationBar() {
         title = navigationBarTitle
         tabBarItem.title = nil
+        navigationItem.rightBarButtonItem = navigationBarRightButton
     }
 }

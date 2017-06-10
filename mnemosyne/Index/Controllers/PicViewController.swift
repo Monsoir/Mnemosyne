@@ -21,6 +21,12 @@ class PicViewController: AssetViewController {
             return NSLocalizedString("PIC", comment: "")
         }
     }
+    
+    override var navigationBarRightButton: UIBarButtonItem? {
+        get {
+            return UIBarButtonItem(image: #imageLiteral(resourceName: "nav-take-picture").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(PicViewController.record))
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +51,12 @@ class PicViewController: AssetViewController {
         return cell
     }
 
+}
+
+extension PicViewController {
+    func record() {
+        
+    }
 }
 
 extension PicViewController: Tabbarable {
