@@ -6,8 +6,19 @@
   Copyright © 2017 wenyongyang. All rights reserved.
 */
 
+CommonConfirm = "Confirm";
+CommonCancel = "Cancel";
+CommonGoTo = "Goto";
 
+// 标题
 "CLIP" = "Clips";
 "SOUND" = "Sounds";
 "PIC" = "Pics";
 "SETTING" = "Setting";
+
+// 权限
+PermissionDeniedTitle = "Permission Denied";
+CameraPermissionDeniedDetail = "Please go to the system setting panel of Mnemosyne to allow Mnemosyne to use Camera";
+MicrophonePermissionDeniedDetail = "Please go to the system setting panel of Mnemosyne to allow Mnemosyne to use micro phone";
+PhotosPermissionDeniedDetail = "Please go to the system setting panel of Mnemosyne to allow Mnemosyne to access your photos";
+

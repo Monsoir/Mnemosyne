@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import TinySystemUtils
 
 class AssetViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     class var CollectionViewCellClass: AssetPreviewCell.Type {
         get {
             return AssetPreviewCell.self
+        }
+    }
+    
+    /// 相关权限获取状态
+    class var authorized: Bool {
+        get {
+            return false
         }
     }
     
@@ -75,5 +83,22 @@ extension AssetViewController: Listable {
         title = navigationBarTitle
         tabBarItem.title = nil
         navigationItem.rightBarButtonItem = navigationBarRightButton
+    }
+}
+
+extension AssetViewController {
+    func promptAuthorization(promptTitle: String, promptDetail: String, goSettingTitle: String, cancelTitle: String) {
+        let actionHandler: (UIAlertAction) -> Void = { _ in
+            SystemSettingsHelper.openSettingsPanelForAppURL(appSettingURL: UIApplicationOpenSettingsURLString)
+        }
+        
+        let actionGotoSettings = [SAActionTitle: goSettingTitle as AnyObject,
+                                  SAActionStyle: UIAlertActionStyle.default as AnyObject,
+                                  SAActionHandler: actionHandler as AnyObject]
+        let actionCancel = [SAActionTitle: cancelTitle as AnyObject,
+                            SAActionStyle: UIAlertActionStyle.cancel as AnyObject,
+                            SAActionHandler: NSNull() as AnyObject]
+        let alert = SimpleAlertController.alert(title: promptTitle, message: promptDetail, actionConfigurations: [actionGotoSettings, actionCancel])
+        self.present(alert, animated: true, completion: nil)
     }
 }

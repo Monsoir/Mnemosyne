@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthorizationKit
 
 class PicViewController: AssetViewController {
     
@@ -55,7 +56,12 @@ class PicViewController: AssetViewController {
 
 extension PicViewController {
     func record() {
-        
+        PhotosAuthorizer.requestAuthorization(success: { (_) in
+            print("authorized")
+        }) { [weak self] (_) in
+            print("not authorized")
+            self?.promptAuthorization(promptTitle: NSLocalizedString("PermissionDeniedTitle", comment: ""), promptDetail: NSLocalizedString("PhotosPermissionDeniedDetail", comment: ""), goSettingTitle: NSLocalizedString("CommonGoTo", comment: ""), cancelTitle: NSLocalizedString("CommonCancel", comment: ""))
+        }
     }
 }
 

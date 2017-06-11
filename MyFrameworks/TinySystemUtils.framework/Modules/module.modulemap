@@ -1,0 +1,11 @@
+framework module TinySystemUtils {
+  umbrella header "TinySystemUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module TinySystemUtils.Swift {
+    header "TinySystemUtils-Swift.h"
+    requires objc
+}

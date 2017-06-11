@@ -6,7 +6,16 @@
   Copyright © 2017 wenyongyang. All rights reserved.
 */
 
+CommonConfirm = "确定";
+CommonCancel = "取消";
+CommonGoTo = "跳往";
+
 "CLIP" = "短视频";
 "SOUND" = "录音";
 "PIC" = "图片";
 "SETTING" = "设置";
+
+PermissionDeniedTitle = "权限被拒绝了";
+CameraPermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 使用照相机";
+MicrophonePermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 使用麦克风";
+PhotosPermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 访问您的照片";

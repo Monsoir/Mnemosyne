@@ -5,3 +5,7 @@
   Created by Mon on 08/06/2017.
   Copyright © 2017 wenyongyang. All rights reserved.
 */
+
+NSCameraUsageDescription = "Mnemosyne needs your authorization to access camera.";
+NSPhotoLibraryUsageDescription = "Mnemosyne needs your anthorization to add photos to your library.";
+NSMicrophoneUsageDescription = "Mnemosyne needs your authorization to access microphone.";

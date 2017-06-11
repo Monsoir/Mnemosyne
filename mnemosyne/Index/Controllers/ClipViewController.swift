@@ -8,12 +8,21 @@
 
 import UIKit
 import SnapKit
+import AuthorizationKit
+import TinySystemUtils
 
 class ClipViewController: AssetViewController {
     
     override class var CollectionViewCellClass: AssetPreviewCell.Type {
         get {
             return ClipCollectionViewCell.self
+        }
+    }
+    
+    /// 相机权限获取状态
+    override class var authorized: Bool {
+        get {
+            return CameraAuthorizer.authorized()
         }
     }
     
@@ -57,7 +66,12 @@ class ClipViewController: AssetViewController {
 // MARK: - Actions
 extension ClipViewController {
     func record() {
-        
+        CameraAuthorizer.requestAuthorization(success: { (_) in
+            print("authorized")
+        }) { [weak self] (_) in
+            print("not authorized")
+            self?.promptAuthorization(promptTitle: NSLocalizedString("PermissionDeniedTitle", comment: ""), promptDetail: NSLocalizedString("CameraPermissionDeniedDetail", comment: ""), goSettingTitle: NSLocalizedString("CommonGoTo", comment: ""), cancelTitle: NSLocalizedString("CommonCancel", comment: ""))
+        }
     }
 }
 

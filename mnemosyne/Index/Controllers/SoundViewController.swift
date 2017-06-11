@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthorizationKit
 
 class SoundViewController: AssetViewController {
     
@@ -55,7 +56,12 @@ class SoundViewController: AssetViewController {
 
 extension SoundViewController {
     func record() {
-        
+        MicroPhoneAuthorizer.requestAuthorization(success: { (_) in
+            print("authorized")
+        }) { [weak self] (_) in
+            print("not authorized")
+            self?.promptAuthorization(promptTitle: NSLocalizedString("PermissionDeniedTitle", comment: ""), promptDetail: NSLocalizedString("MicrophonePermissionDeniedDetail", comment: ""), goSettingTitle: NSLocalizedString("CommonGoTo", comment: ""), cancelTitle: NSLocalizedString("CommonCancel", comment: ""))
+        }
     }
 }
 

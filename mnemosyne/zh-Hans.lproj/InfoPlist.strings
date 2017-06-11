@@ -6,3 +6,6 @@
   Copyright © 2017 wenyongyang. All rights reserved.
 */
 
+NSCameraUsageDescription = "Mnemosyne 需要您的授权来使用照相机";
+NSPhotoLibraryUsageDescription = "Mnemosyne 需要您的授权向 Photos 添加照片";
+NSMicrophoneUsageDescription = "Mnemosyne 需要您的授权来使用麦克风";
