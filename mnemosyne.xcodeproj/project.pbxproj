@@ -17,6 +17,7 @@
 		F92214E51ED6CCA0001178F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92214E31ED6CCA0001178F2 /* LaunchScreen.storyboard */; };
 		F92214F01ED6CCA0001178F2 /* mnemosyneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92214EF1ED6CCA0001178F2 /* mnemosyneTests.swift */; };
 		F92214FB1ED6CCA0001178F2 /* mnemosyneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92214FA1ED6CCA0001178F2 /* mnemosyneUITests.swift */; };
+		F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */; };
 		F94422DF1EDBF55700155A18 /* AuthorizationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */; };
 		F94422E11EDBF56200155A18 /* AuthorizationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F94423721EDBFD1C00155A18 /* FileManagerShortcutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */; };
@@ -99,6 +100,7 @@
 		F92214F61ED6CCA0001178F2 /* mnemosyneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mnemosyneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92214FA1ED6CCA0001178F2 /* mnemosyneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mnemosyneUITests.swift; sourceTree = "<group>"; };
 		F92214FC1ED6CCA0001178F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewController.swift; sourceTree = "<group>"; };
 		F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AuthorizationKit.framework; sourceTree = "<group>"; };
 		F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FileManagerShortcutKit.framework; sourceTree = "<group>"; };
 		F94423861EE0073500155A18 /* Modelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modelable.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				F9C45C501EEA3F9100EFA6B3 /* Constants */,
 				F9BB3B121EE7FB1D00770A01 /* Index */,
+				F931E8C61EEE43110054ADD7 /* Record */,
 				F94423811EDFFF5000155A18 /* protocols */,
 				F92214DA1ED6CCA0001178F2 /* AppDelegate.swift */,
 				F92214DC1ED6CCA0001178F2 /* ViewController.swift */,
@@ -238,6 +241,14 @@
 				F92214FC1ED6CCA0001178F2 /* Info.plist */,
 			);
 			path = mnemosyneUITests;
+			sourceTree = "<group>";
+		};
+		F931E8C61EEE43110054ADD7 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		F94422DD1EDBF54A00155A18 /* MyFrameworks */ = {
@@ -604,6 +615,7 @@
 				F9B4A8411EEA5DFD0033783A /* AssetPreviewCell.swift in Sources */,
 				F946BE321EE92DDA00A096D3 /* BaseViewController.swift in Sources */,
 				F9C45C4F1EEA3E3E00EFA6B3 /* Listable.swift in Sources */,
+				F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */,
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
 				F9BB3B181EE7FB5D00770A01 /* PicViewController.swift in Sources */,

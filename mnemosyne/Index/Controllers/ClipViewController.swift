@@ -68,9 +68,15 @@ extension ClipViewController {
     func record() {
         CameraAuthorizer.requestAuthorization(success: { (_) in
             print("authorized")
-        }) { [weak self] (_) in
+            let vc = ClipRecordViewController()
+            DispatchQueue.main.async {
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            }
+        }) { (_) in
             print("not authorized")
-            self?.promptAuthorization(promptTitle: NSLocalizedString("PermissionDeniedTitle", comment: ""), promptDetail: NSLocalizedString("CameraPermissionDeniedDetail", comment: ""), goSettingTitle: NSLocalizedString("CommonGoTo", comment: ""), cancelTitle: NSLocalizedString("CommonCancel", comment: ""))
+            DispatchQueue.main.async {
+                self.promptAuthorization(promptTitle: NSLocalizedString("PermissionDeniedTitle", comment: ""), promptDetail: NSLocalizedString("CameraPermissionDeniedDetail", comment: ""), goSettingTitle: NSLocalizedString("CommonGoTo", comment: ""), cancelTitle: NSLocalizedString("CommonCancel", comment: ""))
+            }
         }
     }
 }
