@@ -23,6 +23,10 @@ MicrophonePermissionDeniedDetail = "Please go to the system setting panel of Mne
 PhotosPermissionDeniedDetail = "Please go to the system setting panel of Mnemosyne to allow Mnemosyne to access your photos";
 
 // 状态
-StatusRecording = "Recording";
+StatusRecording = "Recording...";
 StatusNotRecording = "Record";
+StatusRecorded = "Finish recording";
 
+// 录制方式
+TapToRecord = "Tap to record";
+HoldToRecord = "Hold to record";

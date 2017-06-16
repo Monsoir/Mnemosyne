@@ -69,7 +69,17 @@ type(of: self).aClassMethod()
 	// 添加动画，会立刻开始，key 为这个动画的名字
 	progressLayer.add(animation, forKey: "Stroke progress")
 	```
+	
+## 父视图添加的 subLayer 遮挡了 subView
 
+如视频录制按钮，解决：
+
+将父视图的 subLayer 插入到 subView.layer 之下
+
+```swift
+panel.contentView.layer.insertSublayer(progressContainerLayer, below: btnRecord.layer)
+panel.contentView.layer.insertSublayer(progressLayer, below: btnRecord.layer)
+```
 
 ### Reference
 
@@ -88,5 +98,22 @@ type(of: self).aClassMethod()
 - `M_PI` 改为了 `Double.pi`
 - 使用 layer 进行画图时(画圆)，需注意 frame 和 center 的值，是相对于 super 而言的，即 super layer，否则坐标将会算错
 	- [https://stackoverflow.com/a/26978091/5211544](https://stackoverflow.com/a/26978091/5211544)
+- OC 中 `SEL` 在 Swift 中为 `Selector`
+- 之前在 OC 中，有的 API 参数是使用 `|` 操作符进行组合，到了 Swift 中，使用 `[]` 将值包裹，多个值使用 `,` 隔开
+- KVO 时，要在 init 方法运行完成，有了实例才能进行监听，否则将会找不到方法
+	- 最好在 `viewWillAppear(:)` 和 `viewwillDisappear(:)` 之类的方法中进行监听与取消监听
+- 在 Swift 中，用于 KVO 监听的属性，需要使用 `@objc dynamic` 修饰
+	- 若监听的属性是自定义的枚举类型，定义枚举类型时，也需要使用 `@objc` 修饰
+	- 监听自定义枚举属性时，在取得新值时候，需要使用 enum 的创建方法对新值进行转换
+
+		```swift
+		let aCustomEnumValue = CustomEnumType(rawValue: change![.newKey] as! Int)
+		```
+
+- 向 layer 添加的 animation，是复制过去的，而不是引用过去的
+- 关于 Visual Effect View
+	- 不要将 alpha 设置小于 1 或者 isHidden = true
+
+	> Setting the alpha to less than 1 on the visual effect view or any of its superviews causes many effects to look incorrect or not show up at all.
 
 
