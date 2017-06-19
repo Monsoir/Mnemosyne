@@ -34,6 +34,8 @@
 		F946BE3D1EE9906000A096D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F946BE3F1EE9906000A096D3 /* Localizable.strings */; };
 		F950F2201EED729F00E64D25 /* TinySystemUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F950F2211EED743700E64D25 /* TinySystemUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; };
+		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
+		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9885EA81EEA81D60078DAF2 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9885EA71EEA81D60078DAF2 /* testImage.jpg */; };
 		F9885EAA1EEA84980078DAF2 /* MnemosyneViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */; };
 		F9885EAC1EEA8DD50078DAF2 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */; };
@@ -78,6 +80,7 @@
 				F94423741EDBFD2700155A18 /* FileManagerShortcutKit.framework in Embed Frameworks */,
 				F94422E11EDBF56200155A18 /* AuthorizationKit.framework in Embed Frameworks */,
 				F950F2201EED729F00E64D25 /* TinySystemUtils.framework in Embed Frameworks */,
+				F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +128,7 @@
 		F946BE3E1EE9906000A096D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F946BE401EE9906200A096D3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinySystemUtils.framework; sourceTree = "<group>"; };
+		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
 		F9885EA71EEA81D60078DAF2 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = ../../../../Pictures/testImage.jpg; sourceTree = "<group>"; };
 		F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemosyneViewable.swift; sourceTree = "<group>"; };
 		F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			files = (
 				F950F2211EED743700E64D25 /* TinySystemUtils.framework in Frameworks */,
 				885D2F087D1FE8B486009627 /* Pods_mnemosyne.framework in Frameworks */,
+				F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */,
 				F94423721EDBFD1C00155A18 /* FileManagerShortcutKit.framework in Frameworks */,
 				F94422DF1EDBF55700155A18 /* AuthorizationKit.framework in Frameworks */,
 			);
@@ -282,6 +287,7 @@
 		F94422DD1EDBF54A00155A18 /* MyFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */,
 				F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */,
 				F94423711EDBFD1C00155A18 /* FileManagerShortcutKit.framework */,
 				F94422DE1EDBF55700155A18 /* AuthorizationKit.framework */,
@@ -794,13 +800,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -847,11 +853,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -871,7 +877,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wenyongyang.mnemosyne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -889,7 +895,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wenyongyang.mnemosyne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

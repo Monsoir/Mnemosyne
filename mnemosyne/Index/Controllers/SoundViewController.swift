@@ -55,7 +55,7 @@ class SoundViewController: AssetViewController {
 }
 
 extension SoundViewController {
-    func record() {
+    @objc func record() {
         MicroPhoneAuthorizer.requestAuthorization(success: { (_) in
             print("authorized")
         }) { [weak self] (_) in

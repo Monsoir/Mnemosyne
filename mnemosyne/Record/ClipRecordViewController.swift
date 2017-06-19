@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
+import MediaRecordKit
 
 /// 录制视频方式
 ///
@@ -50,6 +52,11 @@ class ClipRecordViewController: UIViewController {
     /// 录制方法
     @objc dynamic var recordMethod = ClipRecordMethod.tap
     var recordMethodObserver: MNKeyValueObserver?
+    
+    let recorder: VideoRecorder = {
+        let object = VideoRecorder()
+        return object
+    }()
     
     /// 进度 layer
     let progressLayer: CAShapeLayer = {
@@ -159,6 +166,7 @@ class ClipRecordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupObserver()
+        setupRecorder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -369,7 +377,7 @@ extension ClipRecordViewController {
         recordMethodObserver = nil
     }
     
-    func recordingStatusDidChange(change: [NSKeyValueChangeKey : Any]?) {
+    @objc func recordingStatusDidChange(change: [NSKeyValueChangeKey : Any]?) {
         
         /// 页面第一次运行，忽略
         guard let _ = change?[.oldKey] else { return }
@@ -394,7 +402,7 @@ extension ClipRecordViewController {
         }
     }
     
-    func recordMethodDidChange(change: [NSKeyValueChangeKey : Any]?) {
+    @objc func recordMethodDidChange(change: [NSKeyValueChangeKey : Any]?) {
         guard let c = change else { return }
         
         let rm = ClipRecordMethod(rawValue: c[.newKey] as! Int)
@@ -495,13 +503,37 @@ extension ClipRecordViewController: CAAnimationDelegate {
     }
 }
 
+// MARK: - VideoRecorderDelegate
+extension ClipRecordViewController: VideoRecorderDelegate {
+    
+}
+
+// MARK: - Uncategoried
+extension ClipRecordViewController {
+    func setupRecorder() {
+        recorder.delegate = self
+        recorder.prepareCapture { [unowned self, recorder] (success, error) in
+            if success {
+                let previewLayer = AVCaptureVideoPreviewLayer(session: recorder.captureSession!)
+                DispatchQueue.main.async {
+                    previewLayer.frame = self.view.bounds
+                    self.view.layer.insertSublayer(previewLayer, below: self.panel.layer)
+                }
+                recorder.captureSession?.startRunning()
+            } else {
+                print("\(error!.localizedDescription)")
+            }
+        }
+    }
+}
+
 // MARK: - Actions
 extension ClipRecordViewController {
-    func actionBack() {
+    @objc func actionBack() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func actionTouchUpInside(sender: UIButton) {
+    @objc func actionTouchUpInside(sender: UIButton) {
         sender.alpha = 1.0
         
         if sender == btnTapRecord {
@@ -511,7 +543,7 @@ extension ClipRecordViewController {
         }
     }
     
-    func actionTouchDown(sender: UIButton) {
+    @objc func actionTouchDown(sender: UIButton) {
         sender.alpha = 0.5
         
         if sender == btnHoldRecord {
@@ -519,7 +551,7 @@ extension ClipRecordViewController {
         }
     }
     
-    func actionTouchUpOutside(sender: UIButton) {
+    @objc func actionTouchUpOutside(sender: UIButton) {
         sender.alpha = 1.0
         
         if recordStatus == .recorded { return }
@@ -540,21 +572,21 @@ extension ClipRecordViewController {
     }
     
     /// 改变录制方式
-    func actionChangeRecordMethod(sender: UIButton) {
+    @objc func actionChangeRecordMethod(sender: UIButton) {
         recordMethod = sender == btnTapToRecord ? .tap : .hold
     }
     
     /// 开关灯
-    func actionToggleLight(sender: UIButton) {
+    @objc func actionToggleLight(sender: UIButton) {
         recordStatus = .notRecording
     }
     
     /// 录制结果处理
-    func actionDiscardRecorded(sender: UIButton) {
+    @objc func actionDiscardRecorded(sender: UIButton) {
         recordStatus = .notRecording
     }
     
-    func actionConfirmRecorded(sender: UIButton) {
+    @objc func actionConfirmRecorded(sender: UIButton) {
         
     }
 }

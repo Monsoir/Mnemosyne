@@ -65,7 +65,7 @@ class ClipViewController: AssetViewController {
 
 // MARK: - Actions
 extension ClipViewController {
-    func record() {
+    @objc func record() {
         CameraAuthorizer.requestAuthorization(success: { (_) in
             print("authorized")
             let vc = ClipRecordViewController()

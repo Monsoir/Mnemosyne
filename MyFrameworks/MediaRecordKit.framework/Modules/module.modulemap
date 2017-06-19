@@ -1,0 +1,11 @@
+framework module MediaRecordKit {
+  umbrella header "MediaRecordKit.h"
+
+  export *
+  module * { export * }
+}
+
+module MediaRecordKit.Swift {
+    header "MediaRecordKit-Swift.h"
+    requires objc
+}

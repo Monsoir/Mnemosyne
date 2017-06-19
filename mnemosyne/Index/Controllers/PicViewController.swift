@@ -55,7 +55,7 @@ class PicViewController: AssetViewController {
 }
 
 extension PicViewController {
-    func record() {
+    @objc func record() {
         PhotosAuthorizer.requestAuthorization(success: { (_) in
             print("authorized")
         }) { [weak self] (_) in

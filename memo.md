@@ -92,6 +92,12 @@ panel.contentView.layer.insertSublayer(progressLayer, below: btnRecord.layer)
 - NSPhotoLibraryUsageDescription - Photos 的使用
 - NSMicrophoneUsageDescription - 麦克风使用
 
+## Date formatter 格式
+
+```
+yyyyMMddHHmmss -> 年月日时分秒
+```
+
 ### 简要
 
 - 子类可以直接调用父类的 extension 中的方法

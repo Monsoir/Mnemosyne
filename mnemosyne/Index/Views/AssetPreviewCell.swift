@@ -33,7 +33,7 @@ class AssetPreviewCell: UICollectionViewCell, CollectionViewPreviewable {
     /// 操作按钮
     fileprivate lazy var btnOperations: UIButton = {
         let view = UIButton(type: UIButtonType.system)
-        let attributedString = NSAttributedString(string: "· · ·", attributes:[NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont(name:"Helvetica-Bold", size:23.0)!])
+        let attributedString = NSAttributedString(string: "· · ·", attributes:[NSAttributedStringKey.foregroundColor:UIColor.black, NSAttributedStringKey.font:UIFont(name:"Helvetica-Bold", size:23.0)!])
         view.setAttributedTitle(attributedString, for: .normal)
         return view
     }()
