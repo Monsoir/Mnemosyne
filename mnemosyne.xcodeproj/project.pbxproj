@@ -277,10 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */,
-				F97C6D551EF791A700561E96 /* ClipRecordViewControllerDelegates.swift */,
-				F97C6D531EF790DC00561E96 /* ClipRecordViewControllerKVO.swift */,
-				F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */,
-				F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */,
+				F9873EB51EF7B5CD00AF87DA /* ClipRecordViewControllerExtension */,
 				F93C541A1EF381F500C31E5F /* ClipRecordViewControllerViewLayouts */,
 			);
 			path = Record;
@@ -320,6 +317,17 @@
 				F93C54181EF37E4A00C31E5F /* Layoutable.swift */,
 			);
 			path = protocols;
+			sourceTree = "<group>";
+		};
+		F9873EB51EF7B5CD00AF87DA /* ClipRecordViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */,
+				F97C6D551EF791A700561E96 /* ClipRecordViewControllerDelegates.swift */,
+				F97C6D531EF790DC00561E96 /* ClipRecordViewControllerKVO.swift */,
+				F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */,
+			);
+			path = ClipRecordViewControllerExtension;
 			sourceTree = "<group>";
 		};
 		F9885EA61EEA81C40078DAF2 /* Test Assets */ = {

@@ -171,12 +171,12 @@ class ClipRecordViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupFakeNavigationBar()
         setupSubviews()
+        setupRecorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupObserver()
-        setupRecorder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -193,6 +193,12 @@ class ClipRecordViewController: UIViewController {
         #if DEBUG
             print("\(type(of: self)) deinit")
         #endif
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return recordStatus == .recording
+        }
     }
     
     override func viewDidLayoutSubviews() {

@@ -11,7 +11,7 @@ import AVFoundation
 
 extension ClipRecordViewController {
     func setupSubviews() {
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         
         /// 底部面板
         view.addSubview(panel)
@@ -141,12 +141,12 @@ extension ClipRecordViewController {
         recorder.delegate = self
         recorder.prepareCapture { [unowned self, recorder] (success, error) in
             if success {
-                let previewLayer = AVCaptureVideoPreviewLayer(session: recorder.captureSession!)
+                recorder.captureSession?.startRunning()
                 DispatchQueue.main.async {
+                    let previewLayer = AVCaptureVideoPreviewLayer(session: recorder.captureSession!)
                     previewLayer.frame = self.view.bounds
                     self.view.layer.insertSublayer(previewLayer, below: self.fakeNavigationBar.layer)
                 }
-                recorder.captureSession?.startRunning()
             } else {
                 print("\(error!.localizedDescription)")
             }

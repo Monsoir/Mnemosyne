@@ -98,7 +98,25 @@ panel.contentView.layer.insertSublayer(progressLayer, below: btnRecord.layer)
 yyyyMMddHHmmss -> 年月日时分秒
 ```
 
-### 简要
+## 手动现实和隐藏状态栏
+
+1. override 属性
+
+	```swift
+	override var prefersStatusBarHidden: Bool {
+	   get {
+	       return recordStatus == .recording
+	   }
+	}
+	```
+
+2. 手动通知更新
+
+	```swift
+	self.setNeedsStatusBarAppearanceUpdate()
+	```
+
+## 简要
 
 - 子类可以直接调用父类的 extension 中的方法
 - `M_PI` 改为了 `Double.pi`
@@ -121,5 +139,7 @@ yyyyMMddHHmmss -> 年月日时分秒
 	- 不要将 alpha 设置小于 1 或者 isHidden = true
 
 	> Setting the alpha to less than 1 on the visual effect view or any of its superviews causes many effects to look incorrect or not show up at all.
+
+- Xcode 9 中，虽然在目录导航器中拖移文件可以同时实现物理移动，但最好还是逐个移动而不是批处理，否则可能报错
 
 

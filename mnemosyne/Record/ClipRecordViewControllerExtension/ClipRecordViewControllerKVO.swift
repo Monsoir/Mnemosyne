@@ -21,6 +21,7 @@ extension ClipRecordViewController {
         let oldStatus = ClipRecordStatus(rawValue: c[.oldKey] as! Int)
         if status == oldStatus { return }
         
+        self.setNeedsStatusBarAppearanceUpdate()
         switch status {
         case .notRecording:
             DispatchQueue.main.async { self.updateNotRecordingUI() }
