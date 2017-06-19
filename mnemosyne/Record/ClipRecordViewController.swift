@@ -41,6 +41,11 @@ fileprivate let StrokeWidth = CGFloat(3)
 fileprivate let DeactivatedAlpha = CGFloat(0.4)
 fileprivate let ActivatedAlpha = CGFloat(1.0)
 fileprivate let PanelHeight = CGFloat(120)
+fileprivate let BarHeight: Int = {
+    let statusBarHeight = 20
+    let navigationBarHeight = 44
+    return statusBarHeight + navigationBarHeight
+}()
 fileprivate let StrokeProgressAnimationName = "Stroke progress"
 
 class ClipRecordViewController: UIViewController {
@@ -152,6 +157,13 @@ class ClipRecordViewController: UIViewController {
         view.text = NSLocalizedString("StatusNotRecording", comment: "")
         view.textAlignment = .center
         view.font = UIFont.systemFont(ofSize: 20)
+        return view
+    }()
+    
+    /// 假的导航栏
+    lazy var fakeNavigationBar: UIVisualEffectView = {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        view.layer.masksToBounds = true
         return view
     }()
 
@@ -320,20 +332,12 @@ extension ClipRecordViewController {
     }
     
     func setupFakeNavigationBar() {
-        let barHeight: Int = {
-            let statusBarHeight = 20
-            let navigationBarHeight = 44
-            return statusBarHeight + navigationBarHeight
-        }()
         
-        /// 底层模糊 view
-        let bar = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        bar.layer.masksToBounds = true
-        view.addSubview(bar)
+        view.addSubview(fakeNavigationBar)
         
         /// title
-        let subEffectView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: bar.effect as! UIBlurEffect))
-        bar.contentView.addSubview(subEffectView)
+        let subEffectView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: fakeNavigationBar.effect as! UIBlurEffect))
+        fakeNavigationBar.contentView.addSubview(subEffectView)
         subEffectView.contentView.addSubview(lbRecordStatus)
         
         /// 返回按钮
@@ -343,13 +347,10 @@ extension ClipRecordViewController {
         btnBack.addTarget(self, action: #selector(ClipRecordViewController.actionBack), for: .touchUpInside)
         
         /// 建立约束
-        bar.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(view)
-            make.height.equalTo(barHeight)
-        }
+        fakeNavigationBar.makeLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (CGFloat(BarHeight), nil)))
         
         subEffectView.snp.makeConstraints { (make) in
-            make.edges.equalTo(bar)
+            make.edges.equalTo(fakeNavigationBar)
         }
         
         lbRecordStatus.snp.makeConstraints { (make) in
@@ -436,6 +437,8 @@ extension ClipRecordViewController {
         btnHoldToRecord.isEnabled = true
         btnHoldToRecord.alpha = recordMethod == .hold ? ActivatedAlpha : DeactivatedAlpha
         
+        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
+        
         progressLayer.path = nil
     }
     
@@ -446,6 +449,8 @@ extension ClipRecordViewController {
         btnHoldToRecord.isEnabled = false
         btnHoldToRecord.alpha = recordMethod == .hold ? DeactivatedAlpha : 0
         lbRecordStatus.text = NSLocalizedString("StatusRecording", comment: "")
+        
+        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-BarHeight))))
         
         progressLayer.path = progressStroker!.cgPath
         progressLayer.strokeColor = UIColor.black.cgColor
@@ -474,6 +479,7 @@ extension ClipRecordViewController {
         setupProcessPanelIfNeeded()
         togglePanel(on: false)
         lbRecordStatus.text = NSLocalizedString("StatusRecorded", comment: "")
+        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
     }
     
     fileprivate func togglePanel(on: Bool) {
@@ -517,7 +523,7 @@ extension ClipRecordViewController {
                 let previewLayer = AVCaptureVideoPreviewLayer(session: recorder.captureSession!)
                 DispatchQueue.main.async {
                     previewLayer.frame = self.view.bounds
-                    self.view.layer.insertSublayer(previewLayer, below: self.panel.layer)
+                    self.view.layer.insertSublayer(previewLayer, below: self.fakeNavigationBar.layer)
                 }
                 recorder.captureSession?.startRunning()
             } else {

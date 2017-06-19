@@ -36,6 +36,7 @@
 		F950F2211EED743700E64D25 /* TinySystemUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; };
 		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
 		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F97C6D4E1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */; };
 		F9885EA81EEA81D60078DAF2 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9885EA71EEA81D60078DAF2 /* testImage.jpg */; };
 		F9885EAA1EEA84980078DAF2 /* MnemosyneViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */; };
 		F9885EAC1EEA8DD50078DAF2 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */; };
@@ -129,6 +130,7 @@
 		F946BE401EE9906200A096D3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinySystemUtils.framework; sourceTree = "<group>"; };
 		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
+		F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordFakeNavigationBarLayout.swift; sourceTree = "<group>"; };
 		F9885EA71EEA81D60078DAF2 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = ../../../../Pictures/testImage.jpg; sourceTree = "<group>"; };
 		F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemosyneViewable.swift; sourceTree = "<group>"; };
 		F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				F93C541F1EF39A9E00C31E5F /* ClipRecordMethodLayout.swift */,
 				F90D35EA1EF39D4800BE0C36 /* ClipRecordBtnRecordLayout.swift */,
 				F90D35EE1EF3AC6900BE0C36 /* ClipRecordBtnToRecordLayout.swift */,
+				F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */,
 			);
 			path = ClipRecordViewControllerViewLayouts;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */,
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
+				F97C6D4E1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift in Sources */,
 				F9BB3B181EE7FB5D00770A01 /* PicViewController.swift in Sources */,
 				F9885EB01EEAA20A0078DAF2 /* SoundCollectionViewCell.swift in Sources */,
 				F92214DB1ED6CCA0001178F2 /* AppDelegate.swift in Sources */,
