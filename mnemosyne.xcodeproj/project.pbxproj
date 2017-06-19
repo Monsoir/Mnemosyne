@@ -37,6 +37,10 @@
 		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
 		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F97C6D4E1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */; };
+		F97C6D501EF78D1800561E96 /* ClipRecordViewControllerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */; };
+		F97C6D521EF7906C00561E96 /* ClipRecordViewControllerSetups.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */; };
+		F97C6D541EF790DC00561E96 /* ClipRecordViewControllerKVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D531EF790DC00561E96 /* ClipRecordViewControllerKVO.swift */; };
+		F97C6D561EF791A700561E96 /* ClipRecordViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D551EF791A700561E96 /* ClipRecordViewControllerDelegates.swift */; };
 		F9885EA81EEA81D60078DAF2 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9885EA71EEA81D60078DAF2 /* testImage.jpg */; };
 		F9885EAA1EEA84980078DAF2 /* MnemosyneViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */; };
 		F9885EAC1EEA8DD50078DAF2 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */; };
@@ -131,6 +135,10 @@
 		F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinySystemUtils.framework; sourceTree = "<group>"; };
 		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
 		F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordFakeNavigationBarLayout.swift; sourceTree = "<group>"; };
+		F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerActions.swift; sourceTree = "<group>"; };
+		F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerSetups.swift; sourceTree = "<group>"; };
+		F97C6D531EF790DC00561E96 /* ClipRecordViewControllerKVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerKVO.swift; sourceTree = "<group>"; };
+		F97C6D551EF791A700561E96 /* ClipRecordViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerDelegates.swift; sourceTree = "<group>"; };
 		F9885EA71EEA81D60078DAF2 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = ../../../../Pictures/testImage.jpg; sourceTree = "<group>"; };
 		F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemosyneViewable.swift; sourceTree = "<group>"; };
 		F9885EAB1EEA8DD50078DAF2 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +277,10 @@
 			isa = PBXGroup;
 			children = (
 				F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */,
+				F97C6D551EF791A700561E96 /* ClipRecordViewControllerDelegates.swift */,
+				F97C6D531EF790DC00561E96 /* ClipRecordViewControllerKVO.swift */,
+				F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */,
+				F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */,
 				F93C541A1EF381F500C31E5F /* ClipRecordViewControllerViewLayouts */,
 			);
 			path = Record;
@@ -666,6 +678,7 @@
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
 				F97C6D4E1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift in Sources */,
+				F97C6D561EF791A700561E96 /* ClipRecordViewControllerDelegates.swift in Sources */,
 				F9BB3B181EE7FB5D00770A01 /* PicViewController.swift in Sources */,
 				F9885EB01EEAA20A0078DAF2 /* SoundCollectionViewCell.swift in Sources */,
 				F92214DB1ED6CCA0001178F2 /* AppDelegate.swift in Sources */,
@@ -673,6 +686,7 @@
 				F90D35EB1EF39D4800BE0C36 /* ClipRecordBtnRecordLayout.swift in Sources */,
 				F93C541E1EF3889700C31E5F /* ClipRecordSubEffectLayout.swift in Sources */,
 				F93C54201EF39A9E00C31E5F /* ClipRecordMethodLayout.swift in Sources */,
+				F97C6D501EF78D1800561E96 /* ClipRecordViewControllerActions.swift in Sources */,
 				F9885EAA1EEA84980078DAF2 /* MnemosyneViewable.swift in Sources */,
 				F9BB3B161EE7FB5300770A01 /* SoundViewController.swift in Sources */,
 				F9885EB21EEAA21C0078DAF2 /* PicCollectionViewCell.swift in Sources */,
@@ -680,6 +694,8 @@
 				F94423871EE0073500155A18 /* Modelable.swift in Sources */,
 				F93C54191EF37E4A00C31E5F /* Layoutable.swift in Sources */,
 				F9C45C541EEA407E00EFA6B3 /* UIContants.swift in Sources */,
+				F97C6D541EF790DC00561E96 /* ClipRecordViewControllerKVO.swift in Sources */,
+				F97C6D521EF7906C00561E96 /* ClipRecordViewControllerSetups.swift in Sources */,
 				F9885EAC1EEA8DD50078DAF2 /* AssetViewController.swift in Sources */,
 				F93C541C1EF3825800C31E5F /* ClipRecordPanelLayout.swift in Sources */,
 			);

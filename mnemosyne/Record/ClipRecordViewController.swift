@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SnapKit
-import AVFoundation
 import MediaRecordKit
 
 /// 录制视频方式
@@ -34,19 +32,19 @@ import MediaRecordKit
 }
 
 /// test constants
-fileprivate let RecordMethodPrompt = NSLocalizedString("TapToRecord", comment: "")
-fileprivate let RecordMethod = ClipRecordMethod.tap
+let RecordMethodPrompt = NSLocalizedString("TapToRecord", comment: "")
+let RecordMethod = ClipRecordMethod.tap
 
-fileprivate let StrokeWidth = CGFloat(3)
-fileprivate let DeactivatedAlpha = CGFloat(0.4)
-fileprivate let ActivatedAlpha = CGFloat(1.0)
-fileprivate let PanelHeight = CGFloat(120)
-fileprivate let BarHeight: Int = {
+let StrokeWidth = CGFloat(3)
+let DeactivatedAlpha = CGFloat(0.4)
+let ActivatedAlpha = CGFloat(1.0)
+let PanelHeight = CGFloat(120)
+let BarHeight: Int = {
     let statusBarHeight = 20
     let navigationBarHeight = 44
     return statusBarHeight + navigationBarHeight
 }()
-fileprivate let StrokeProgressAnimationName = "Stroke progress"
+let StrokeProgressAnimationName = "Stroke progress"
 
 class ClipRecordViewController: UIViewController {
     
@@ -80,10 +78,10 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 用来画进度的路径
-    fileprivate var progressStroker: UIBezierPath? = nil
+    var progressStroker: UIBezierPath? = nil
     
     /// 点击录制按钮
-    fileprivate lazy var btnTapRecord: UIButton = {
+    lazy var btnTapRecord: UIButton = {
         let view = UIButton(type: .system)
         view.backgroundColor = .red
         view.addTarget(self, action: #selector(ClipRecordViewController.actionTouchDown(sender:)), for: .touchDown)
@@ -93,7 +91,7 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 按住录制按钮
-    fileprivate lazy var btnHoldRecord: UIButton = {
+    lazy var btnHoldRecord: UIButton = {
         let view = UIButton(type: .system)
         view.backgroundColor = .red
         view.addTarget(self, action: #selector(ClipRecordViewController.actionTouchDown(sender:)), for: .touchDown)
@@ -103,10 +101,10 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 当前录制按钮，已选定录制方式的那种
-    fileprivate weak var btnRecord: UIButton!
+    weak var btnRecord: UIButton!
     
     /// 当前录制方式提示
-    fileprivate lazy var lbRecordMethod: UILabel = {
+    lazy var lbRecordMethod: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
         view.text = RecordMethodPrompt
@@ -114,7 +112,7 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 点击录制选项
-    fileprivate lazy var btnTapToRecord: UIButton = {
+    lazy var btnTapToRecord: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "tap-record").withRenderingMode(.alwaysOriginal), for: .normal)
         view.addTarget(self, action: #selector(ClipRecordViewController.actionChangeRecordMethod(sender:)), for: .touchUpInside)
@@ -122,7 +120,7 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 按住录制选项
-    fileprivate lazy var btnHoldToRecord: UIButton = {
+    lazy var btnHoldToRecord: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "hold-record").withRenderingMode(.alwaysOriginal), for: .normal)
         view.addTarget(self, action: #selector(ClipRecordViewController.actionChangeRecordMethod(sender:)), for: .touchUpInside)
@@ -130,7 +128,7 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 亮灯
-    fileprivate lazy var btnLight: UIButton = {
+    lazy var btnLight: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "light").withRenderingMode(.alwaysOriginal), for: .normal)
         view.addTarget(self, action: #selector(ClipRecordViewController.actionToggleLight(sender:)), for: .touchUpInside)
@@ -138,14 +136,14 @@ class ClipRecordViewController: UIViewController {
     }()
     
     /// 录制面板
-    fileprivate lazy var panel: UIVisualEffectView = {
+    lazy var panel: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         view.layer.masksToBounds = true
         return view
     }()
     
     /// 录制完成后的处理操作面板
-    fileprivate lazy var processPanel: UIVisualEffectView = {
+    lazy var processPanel: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         view.layer.masksToBounds = true
         return view
@@ -233,366 +231,5 @@ class ClipRecordViewController: UIViewController {
             panel.contentView.layer.insertSublayer(progressContainerLayer, below: btnHoldRecord.layer)
             panel.contentView.layer.insertSublayer(progressLayer, below: btnHoldRecord.layer)
         }
-    }
-}
-
-// MARK: - Views
-extension ClipRecordViewController {
-    func setupSubviews() {
-        view.backgroundColor = .orange
-        
-        /// 底部面板
-        view.addSubview(panel)
-        
-        /// 录制方法标签
-        let subEffectView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: panel.effect as! UIBlurEffect))
-        panel.contentView.addSubview(subEffectView)
-        subEffectView.contentView.addSubview(lbRecordMethod)
-        
-        let btnRecordLength = 60
-        
-        /// 按住录制按钮
-        btnHoldRecord.layer.cornerRadius = CGFloat(btnRecordLength / 2)
-        panel.contentView.addSubview(btnHoldRecord)
-        
-        /// 点击录制按钮
-        btnTapRecord.layer.cornerRadius = CGFloat(btnRecordLength / 2)
-        panel.contentView.addSubview(btnTapRecord)
-        
-        /// 录制方法选取按钮
-        let btnRecordHeight = 30
-        btnTapToRecord.layer.cornerRadius = CGFloat(btnRecordHeight / 2)
-        btnTapToRecord.layer.borderWidth = 1
-        btnTapToRecord.layer.borderColor = UIColor.black.cgColor
-        btnHoldToRecord.layer.cornerRadius = CGFloat(btnRecordHeight / 2)
-        btnHoldToRecord.layer.borderWidth = 1
-        btnHoldToRecord.layer.borderColor = UIColor.black.cgColor
-        panel.contentView.addSubview(btnTapToRecord)
-        panel.contentView.addSubview(btnHoldToRecord)
-        
-        /// 亮灯按钮
-        panel.contentView.addSubview(btnLight)
-        
-        /// 设置约束
-        panel.makeLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (PanelHeight, nil)))
-        subEffectView.makeLayout(layouter: ClipRecordSubEffectLayout(with: (panel.contentView), constants: (10)))
-        lbRecordMethod.makeLayout(layouter: ClipRecordMethodLayout(with: (subEffectView)))
-        btnHoldRecord.makeLayout(layouter: ClipRecordBtnRecordLayout(with: (panel.contentView), constants: (-10, CGSize(width: btnRecordLength, height: btnRecordLength))))
-        btnTapRecord.makeLayout(layouter: ClipRecordBtnRecordLayout(with: panel.contentView, constants: (-10, CGSize(width: btnRecordLength, height: btnRecordLength))))
-        btnTapToRecord.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 0.3)))
-        btnHoldToRecord.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 0.3 * 2)))
-        btnLight.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 1.5)))
-    }
-    
-    func setupProcessPanel() {
-        
-        /// 返回
-        let btnBack: UIButton = {
-            let view = UIButton(type: .system)
-            view.setImage(#imageLiteral(resourceName: "process-back").withRenderingMode(.alwaysOriginal), for: .normal)
-            view.addTarget(self, action: #selector(ClipRecordViewController.actionDiscardRecorded(sender:)), for: .touchUpInside)
-            return view
-        }()
-        
-        /// 确认
-        let btnCheck: UIButton = {
-            let view = UIButton(type: .system)
-            view.setImage(#imageLiteral(resourceName: "process-check").withRenderingMode(.alwaysOriginal), for: .normal)
-            view.addTarget(self, action: #selector(ClipRecordViewController.actionConfirmRecorded(sender:)), for: .touchUpInside)
-            return view
-        }()
-        
-        view.addSubview(processPanel)
-        processPanel.contentView.addSubview(btnBack)
-        processPanel.contentView.addSubview(btnCheck)
-        
-        /// 创建约束
-        processPanel.contentView.snp.makeConstraints { (make) in
-            make.edges.equalTo(processPanel)
-        }
-        
-        processPanel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(PanelHeight)
-            make.left.right.equalTo(view)
-            make.height.equalTo(PanelHeight)
-        }
-        
-        let btnLength = 50
-        btnBack.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: btnLength, height: btnLength))
-            make.centerY.equalTo(processPanel)
-            make.centerX.equalTo(processPanel).multipliedBy(0.5)
-        }
-        
-        btnCheck.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: btnLength, height: btnLength))
-            make.centerY.equalTo(processPanel)
-            make.centerX.equalTo(processPanel).multipliedBy(1.5)
-        }
-    }
-    
-    func setupFakeNavigationBar() {
-        
-        view.addSubview(fakeNavigationBar)
-        
-        /// title
-        let subEffectView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: fakeNavigationBar.effect as! UIBlurEffect))
-        fakeNavigationBar.contentView.addSubview(subEffectView)
-        subEffectView.contentView.addSubview(lbRecordStatus)
-        
-        /// 返回按钮
-        let btnBack = UIButton(type: .system)
-        btnBack.setBackgroundImage(#imageLiteral(resourceName: "back"), for: .normal)
-        subEffectView.contentView.addSubview(btnBack)
-        btnBack.addTarget(self, action: #selector(ClipRecordViewController.actionBack), for: .touchUpInside)
-        
-        /// 建立约束
-        fakeNavigationBar.makeLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (CGFloat(BarHeight), nil)))
-        
-        subEffectView.snp.makeConstraints { (make) in
-            make.edges.equalTo(fakeNavigationBar)
-        }
-        
-        lbRecordStatus.snp.makeConstraints { (make) in
-            make.centerX.equalTo(subEffectView)
-            make.centerY.equalTo(subEffectView).offset(5)
-        }
-        
-        btnBack.snp.makeConstraints { (make) in
-            make.centerY.equalTo(lbRecordStatus)
-            make.left.equalTo(subEffectView).offset(10)
-            make.size.equalTo(CGSize(width: 30, height: 30))
-        }
-    }
-}
-
-// MARK: - KVO
-extension ClipRecordViewController {
-    func setupObserver() {
-        recordStatusObserver = MNKeyValueObserver.observeObject(object: self as AnyObject, keyPath: #keyPath(recordStatus), target: self as AnyObject, selector: #selector(ClipRecordViewController.recordingStatusDidChange(change:)), options: [.initial, .new, .old])
-        recordMethodObserver = MNKeyValueObserver.observeObject(object: self, keyPath: #keyPath(recordMethod), target: self, selector: #selector(ClipRecordViewController.recordMethodDidChange(change:)), options: [.initial, .new])
-    }
-    
-    func unsetupObserver() {
-        recordStatusObserver = nil
-        recordMethodObserver = nil
-    }
-    
-    @objc func recordingStatusDidChange(change: [NSKeyValueChangeKey : Any]?) {
-        
-        /// 页面第一次运行，忽略
-        guard let _ = change?[.oldKey] else { return }
-        
-        guard let c = change else { return }
-        
-        let status = ClipRecordStatus(rawValue: c[.newKey] as! Int)!
-        let oldStatus = ClipRecordStatus(rawValue: c[.oldKey] as! Int)
-        if status == oldStatus { return }
-        
-        switch status {
-            case .notRecording:
-                DispatchQueue.main.async { self.updateNotRecordingUI() }
-            case .recording:
-                startRecording()
-                DispatchQueue.main.async { self.updateRecordingUI() }
-            case .recorded:
-                finishRecording()
-                DispatchQueue.main.async { self.updateFinishRecordingUI() }
-            case .cancelRecording:
-                cancelRecording()
-        }
-    }
-    
-    @objc func recordMethodDidChange(change: [NSKeyValueChangeKey : Any]?) {
-        guard let c = change else { return }
-        
-        let rm = ClipRecordMethod(rawValue: c[.newKey] as! Int)
-        let isTap = rm == .tap
-        DispatchQueue.main.async {
-            self.btnTapRecord.isHidden = !isTap
-            self.btnHoldRecord.isHidden = isTap
-            self.btnRecord = isTap ? self.btnTapRecord : self.btnHoldRecord
-            self.btnTapToRecord.alpha = isTap ? ActivatedAlpha : DeactivatedAlpha
-            self.btnHoldToRecord.alpha = isTap ? DeactivatedAlpha : ActivatedAlpha
-            self.lbRecordMethod.text = isTap ? NSLocalizedString("TapToRecord", comment: "") : NSLocalizedString("HoldToRecord", comment: "")
-        }
-    }
-    
-    /// 未进行录制的 UI 设置
-    func updateNotRecordingUI() {
-        /**
-         更新内容包括：
-         - 显示操作面板
-         - 隐藏录制完成后的处理面板
-         - 录制方式选取按钮的状态
-         - 导航栏上的 title
-         - 进度条
-         **/
-        
-        togglePanel(on: true)
-        
-        lbRecordStatus.text = NSLocalizedString("StatusNotRecording", comment: "")
-        btnTapToRecord.isEnabled = true
-        btnTapToRecord.alpha = recordMethod == .tap ? ActivatedAlpha : DeactivatedAlpha
-        btnHoldToRecord.isEnabled = true
-        btnHoldToRecord.alpha = recordMethod == .hold ? ActivatedAlpha : DeactivatedAlpha
-        
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
-        
-        progressLayer.path = nil
-    }
-    
-    /// 正在录制时的 UI 设置
-    func updateRecordingUI() {
-        btnTapToRecord.isEnabled = false
-        btnTapToRecord.alpha = recordMethod == .tap ? DeactivatedAlpha : 0
-        btnHoldToRecord.isEnabled = false
-        btnHoldToRecord.alpha = recordMethod == .hold ? DeactivatedAlpha : 0
-        lbRecordStatus.text = NSLocalizedString("StatusRecording", comment: "")
-        
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-BarHeight))))
-        
-        progressLayer.path = progressStroker!.cgPath
-        progressLayer.strokeColor = UIColor.black.cgColor
-        
-        let animation: CABasicAnimation = {
-            let animation = CABasicAnimation(keyPath: "strokeEnd")
-            animation.fromValue = 0.0
-            animation.toValue = 1.0
-            animation.duration = 2
-            animation.delegate = self
-            animation.isRemovedOnCompletion = false
-            
-            return animation
-        }()
-        progressLayer.add(animation, forKey: StrokeProgressAnimationName)
-    }
-    
-    /// 录制完成时的 UI 设置
-    func updateFinishRecordingUI() {
-        /**
-         更新内容包括：
-         - 隐藏操作面板
-         - 显示录制完成后的处理面板
-         **/
-        
-        setupProcessPanelIfNeeded()
-        togglePanel(on: false)
-        lbRecordStatus.text = NSLocalizedString("StatusRecorded", comment: "")
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
-    }
-    
-    fileprivate func togglePanel(on: Bool) {
-        panel.updateLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (nil, on ? 0 : PanelHeight)))
-        
-        setupProcessPanelIfNeeded()
-        processPanel.snp.updateConstraints { (make) in
-            make.bottom.equalTo(view).offset(on ? PanelHeight : 0)
-        }
-    }
-    
-    fileprivate func setupProcessPanelIfNeeded() {
-        if !processPanel.isDescendant(of: view) {
-            setupProcessPanel()
-        }
-    }
-}
-
-// MARK: - CAAnimationDelegate
-extension ClipRecordViewController: CAAnimationDelegate {
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        // 识别目标动画 -> 进度动画
-        if flag && anim == progressLayer.animation(forKey: StrokeProgressAnimationName) {
-            if recordStatus == .recording { recordStatus = .recorded }
-            progressLayer.removeAnimation(forKey: StrokeProgressAnimationName)
-        }
-    }
-}
-
-// MARK: - VideoRecorderDelegate
-extension ClipRecordViewController: VideoRecorderDelegate {
-    
-}
-
-// MARK: - Uncategoried
-extension ClipRecordViewController {
-    func setupRecorder() {
-        recorder.delegate = self
-        recorder.prepareCapture { [unowned self, recorder] (success, error) in
-            if success {
-                let previewLayer = AVCaptureVideoPreviewLayer(session: recorder.captureSession!)
-                DispatchQueue.main.async {
-                    previewLayer.frame = self.view.bounds
-                    self.view.layer.insertSublayer(previewLayer, below: self.fakeNavigationBar.layer)
-                }
-                recorder.captureSession?.startRunning()
-            } else {
-                print("\(error!.localizedDescription)")
-            }
-        }
-    }
-}
-
-// MARK: - Actions
-extension ClipRecordViewController {
-    @objc func actionBack() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func actionTouchUpInside(sender: UIButton) {
-        sender.alpha = 1.0
-        
-        if sender == btnTapRecord {
-            recordStatus = recordStatus == .recording ? .recorded : .recording
-        } else if sender == btnHoldRecord {
-            recordStatus = .recorded
-        }
-    }
-    
-    @objc func actionTouchDown(sender: UIButton) {
-        sender.alpha = 0.5
-        
-        if sender == btnHoldRecord {
-            recordStatus = .recording
-        }
-    }
-    
-    @objc func actionTouchUpOutside(sender: UIButton) {
-        sender.alpha = 1.0
-        
-        if recordStatus == .recorded { return }
-        recordStatus = .cancelRecording
-    }
-    
-    func startRecording() {
-        print("start recording")
-    }
-    
-    func finishRecording() {
-        print("stop recording")
-    }
-    
-    func cancelRecording() {
-        print("cancel recording")
-        recordStatus = .notRecording
-    }
-    
-    /// 改变录制方式
-    @objc func actionChangeRecordMethod(sender: UIButton) {
-        recordMethod = sender == btnTapToRecord ? .tap : .hold
-    }
-    
-    /// 开关灯
-    @objc func actionToggleLight(sender: UIButton) {
-        recordStatus = .notRecording
-    }
-    
-    /// 录制结果处理
-    @objc func actionDiscardRecorded(sender: UIButton) {
-        recordStatus = .notRecording
-    }
-    
-    @objc func actionConfirmRecorded(sender: UIButton) {
-        
     }
 }
