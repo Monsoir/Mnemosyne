@@ -46,7 +46,7 @@ extension ClipRecordViewController {
         panel.contentView.addSubview(btnLight)
         
         /// 设置约束
-        panel.makeLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (PanelHeight, nil)))
+        panel.makeLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (ClipRecord.panelHeight, nil)))
         subEffectView.makeLayout(layouter: ClipRecordSubEffectLayout(with: (panel.contentView), constants: (10)))
         lbRecordMethod.makeLayout(layouter: ClipRecordMethodLayout(with: (subEffectView)))
         btnHoldRecord.makeLayout(layouter: ClipRecordBtnRecordLayout(with: (panel.contentView), constants: (-10, CGSize(width: btnRecordLength, height: btnRecordLength))))
@@ -84,9 +84,9 @@ extension ClipRecordViewController {
         }
         
         processPanel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(PanelHeight)
+            make.bottom.equalTo(view).offset(ClipRecord.panelHeight)
             make.left.right.equalTo(view)
-            make.height.equalTo(PanelHeight)
+            make.height.equalTo(ClipRecord.panelHeight)
         }
         
         let btnLength = 50
@@ -119,7 +119,7 @@ extension ClipRecordViewController {
         btnBack.addTarget(self, action: #selector(ClipRecordViewController.actionBack), for: .touchUpInside)
         
         /// 建立约束
-        fakeNavigationBar.makeLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (CGFloat(BarHeight), nil)))
+        fakeNavigationBar.makeLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (CGFloat(ClipRecord.barHeight), nil)))
         
         subEffectView.snp.makeConstraints { (make) in
             make.edges.equalTo(fakeNavigationBar)

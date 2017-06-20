@@ -203,8 +203,8 @@ SWIFT_CLASS("_TtC14MediaRecordKit13VideoRecorder")
 SWIFT_PROTOCOL("_TtP14MediaRecordKit21VideoRecorderDelegate_")
 @protocol VideoRecorderDelegate
 @optional
-- (void)fileDidStartOutputToURL:(NSURL * _Nonnull)fileURL;
-- (void)fileDidFinishOutputToURL:(NSURL * _Nonnull)outputFileURL error:(NSError * _Nullable)error;
+- (void)fileDidStartOutputToURL:(NSURL * _Nonnull)fileURL fileName:(NSString * _Nonnull)fileName;
+- (void)fileDidFinishOutputToURL:(NSURL * _Nonnull)outputFileURL fileName:(NSString * _Nonnull)fileName error:(NSError * _Nullable)error;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

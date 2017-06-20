@@ -8,19 +8,35 @@
 
 import UIKit
 import MediaRecordKit
+import FileManagerShortcutKit
 
 // MARK: - CAAnimationDelegate
 extension ClipRecordViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         // 识别目标动画 -> 进度动画
-        if flag && anim == progressLayer.animation(forKey: StrokeProgressAnimationName) {
+        if flag && anim == progressLayer.animation(forKey: ClipRecord.strokeProgressAnimationName) {
             if recordStatus == .recording { recordStatus = .recorded }
-            progressLayer.removeAnimation(forKey: StrokeProgressAnimationName)
+            progressLayer.removeAnimation(forKey: ClipRecord.strokeProgressAnimationName)
         }
     }
 }
 
 // MARK: - VideoRecorderDelegate
 extension ClipRecordViewController: VideoRecorderDelegate {
+    func fileDidStartOutputToURL(_ fileURL: URL, fileName: String) {
+        print("\(fileURL)")
+        print("\(fileName)")
+    }
     
+    func fileDidFinishOutputToURL(_ outputFileURL: URL, fileName: String, error: Error?) {
+        assetMeta.identifier = fileName
+        assetMeta.nickName = fileName
+        assetMeta.location = outputFileURL.absoluteString
+        
+        #if DEBUG
+            print("\(outputFileURL)")
+            print("\(fileName)")
+            print(assetMeta)
+        #endif
+    }
 }

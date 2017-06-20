@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MediaRecordKit-Swift.h</key>
 		<data>
-		BM33q94DiUhyr3YptBa7sL8wHs0=
+		jGnuiy8jR/60+m1ttCjfflzJ9xg=
 		</data>
 		<key>Headers/MediaRecordKit.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		XmjD8f/b+bPDUJ+CgTKSRFjAxng=
+		NvL08TNRXy953XA8JKCaliFbHW8=
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		rL18AnCPPpxHB0iKY1wcWc2NXTk=
+		jtEWUcXdLnPEUq9kHrixsk3AcGg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BM33q94DiUhyr3YptBa7sL8wHs0=
+			jGnuiy8jR/60+m1ttCjfflzJ9xg=
 			</data>
 			<key>hash2</key>
 			<data>
-			4jNKk16YO7HCrW3W618MGyKi0WmsVG7Dz9wvC9jxvtE=
+			mNWSU+GFpPqLxQg429dCL38sw8dRIuiPsm4E3xDXSjY=
 			</data>
 		</dict>
 		<key>Headers/MediaRecordKit.h</key>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XmjD8f/b+bPDUJ+CgTKSRFjAxng=
+			NvL08TNRXy953XA8JKCaliFbHW8=
 			</data>
 			<key>hash2</key>
 			<data>
-			/nzDx7LhE/uuFjNLnRMx5xVpLezqXr+Son5iDRrJ3JA=
+			+9Chdki55W9MJ4jJm4HXz71FZGNVJFiWpMFGoG8nNio=
 			</data>
 		</dict>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rL18AnCPPpxHB0iKY1wcWc2NXTk=
+			jtEWUcXdLnPEUq9kHrixsk3AcGg=
 			</data>
 			<key>hash2</key>
 			<data>
-			n6i9COnjP8t1zjxXnGSwRugLcFTiM1VFvGR7+f1bEiI=
+			wXA06CX19Eekv9HQrcY01xK22jN3iDfuxvHFTWsH34M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -24,6 +24,7 @@ extension ClipRecordViewController {
         self.setNeedsStatusBarAppearanceUpdate()
         switch status {
         case .notRecording:
+            resetRecording()
             DispatchQueue.main.async { self.updateNotRecordingUI() }
         case .recording:
             startRecording()
@@ -45,8 +46,8 @@ extension ClipRecordViewController {
             self.btnTapRecord.isHidden = !isTap
             self.btnHoldRecord.isHidden = isTap
             self.btnRecord = isTap ? self.btnTapRecord : self.btnHoldRecord
-            self.btnTapToRecord.alpha = isTap ? ActivatedAlpha : DeactivatedAlpha
-            self.btnHoldToRecord.alpha = isTap ? DeactivatedAlpha : ActivatedAlpha
+            self.btnTapToRecord.alpha = isTap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
+            self.btnHoldToRecord.alpha = isTap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
             self.lbRecordMethod.text = isTap ? NSLocalizedString("TapToRecord", comment: "") : NSLocalizedString("HoldToRecord", comment: "")
         }
     }
@@ -66,9 +67,9 @@ extension ClipRecordViewController {
         
         lbRecordStatus.text = NSLocalizedString("StatusNotRecording", comment: "")
         btnTapToRecord.isEnabled = true
-        btnTapToRecord.alpha = recordMethod == .tap ? ActivatedAlpha : DeactivatedAlpha
+        btnTapToRecord.alpha = recordMethod == .tap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
         btnHoldToRecord.isEnabled = true
-        btnHoldToRecord.alpha = recordMethod == .hold ? ActivatedAlpha : DeactivatedAlpha
+        btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
         
         fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
         
@@ -78,12 +79,12 @@ extension ClipRecordViewController {
     /// 正在录制时的 UI 设置
     func updateRecordingUI() {
         btnTapToRecord.isEnabled = false
-        btnTapToRecord.alpha = recordMethod == .tap ? DeactivatedAlpha : 0
+        btnTapToRecord.alpha = recordMethod == .tap ? ClipRecord.deactivatedAlpha : 0
         btnHoldToRecord.isEnabled = false
-        btnHoldToRecord.alpha = recordMethod == .hold ? DeactivatedAlpha : 0
+        btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.deactivatedAlpha : 0
         lbRecordStatus.text = NSLocalizedString("StatusRecording", comment: "")
         
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-BarHeight))))
+        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-ClipRecord.barHeight))))
         
         progressLayer.path = progressStroker!.cgPath
         progressLayer.strokeColor = UIColor.black.cgColor
@@ -92,13 +93,13 @@ extension ClipRecordViewController {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0.0
             animation.toValue = 1.0
-            animation.duration = 2
+            animation.duration = CFTimeInterval(ClipRecord.recordDuration)
             animation.delegate = self
             animation.isRemovedOnCompletion = false
             
             return animation
         }()
-        progressLayer.add(animation, forKey: StrokeProgressAnimationName)
+        progressLayer.add(animation, forKey: ClipRecord.strokeProgressAnimationName)
     }
     
     /// 录制完成时的 UI 设置
@@ -116,11 +117,11 @@ extension ClipRecordViewController {
     }
     
     fileprivate func togglePanel(on: Bool) {
-        panel.updateLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (nil, on ? 0 : PanelHeight)))
+        panel.updateLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (nil, on ? 0 : ClipRecord.panelHeight)))
         
         setupProcessPanelIfNeeded()
         processPanel.snp.updateConstraints { (make) in
-            make.bottom.equalTo(view).offset(on ? PanelHeight : 0)
+            make.bottom.equalTo(view).offset(on ? ClipRecord.panelHeight : 0)
         }
     }
     

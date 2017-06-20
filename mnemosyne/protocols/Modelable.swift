@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum MnemosyneAssetType {
-    case none
-    case clip // 视频
-    case sound // 音频
-    case pic // 图片
-}
-
 protocol MnemosyneAssetable {
     
     /// 创建日期

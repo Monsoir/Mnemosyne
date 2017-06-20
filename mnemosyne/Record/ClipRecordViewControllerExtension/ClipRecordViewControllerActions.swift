@@ -38,16 +38,21 @@ extension ClipRecordViewController {
         recordStatus = .cancelRecording
     }
     
+    func resetRecording() {
+        recorder.startReceivingEnvironment()
+    }
+    
     func startRecording() {
-        print("start recording")
+        assetMeta = MNAssetMeta()
+        // 设置 assetMeta 在回调方法中
+        recorder.startRecording(forDuration: TimeInterval(ClipRecord.recordDuration))
     }
     
     func finishRecording() {
-        print("stop recording")
+        recorder.stopRecording()
     }
     
     func cancelRecording() {
-        print("cancel recording")
         recordStatus = .notRecording
     }
     
@@ -58,7 +63,7 @@ extension ClipRecordViewController {
     
     /// 开关灯
     @objc func actionToggleLight(sender: UIButton) {
-        recordStatus = .notRecording
+        recorder.toggleTorch()
     }
     
     /// 录制结果处理
@@ -67,6 +72,12 @@ extension ClipRecordViewController {
     }
     
     @objc func actionConfirmRecorded(sender: UIButton) {
+        let srcURL = NSURL(string: assetMeta.location)
+        let fileNameWithExtension = srcURL?.lastPathComponent
+        let parentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = parentURL.appendingPathComponent("Clips", isDirectory: true).appendingPathComponent(fileNameWithExtension!)
+        try! FileManager.default.moveItem(at: NSURL(string: assetMeta.location)! as URL, to: url)
         
+        dismiss(animated: true, completion: nil)
     }
 }

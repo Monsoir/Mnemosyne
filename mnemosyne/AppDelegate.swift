@@ -12,10 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func createDirectory() {
+        let parentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = parentURL.appendingPathComponent("Clips", isDirectory: true)
+        
+        try! FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        createDirectory()
         
         let tabVC = UITabBarController()
         

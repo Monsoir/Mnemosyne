@@ -31,22 +31,9 @@ import MediaRecordKit
     case cancelRecording
 }
 
-/// test constants
-let RecordMethodPrompt = NSLocalizedString("TapToRecord", comment: "")
-let RecordMethod = ClipRecordMethod.tap
-
-let StrokeWidth = CGFloat(3)
-let DeactivatedAlpha = CGFloat(0.4)
-let ActivatedAlpha = CGFloat(1.0)
-let PanelHeight = CGFloat(120)
-let BarHeight: Int = {
-    let statusBarHeight = 20
-    let navigationBarHeight = 44
-    return statusBarHeight + navigationBarHeight
-}()
-let StrokeProgressAnimationName = "Stroke progress"
-
 class ClipRecordViewController: UIViewController {
+    
+// MARK: UI 控件
     
     /// 录制状态
     @objc dynamic var recordStatus = ClipRecordStatus.notRecording
@@ -56,6 +43,7 @@ class ClipRecordViewController: UIViewController {
     @objc dynamic var recordMethod = ClipRecordMethod.tap
     var recordMethodObserver: MNKeyValueObserver?
     
+    /// 视频录制器
     let recorder: VideoRecorder = {
         let object = VideoRecorder()
         return object
@@ -66,7 +54,7 @@ class ClipRecordViewController: UIViewController {
         let layer = CAShapeLayer()
         layer.strokeColor = UIColor.clear.cgColor
         layer.fillColor = UIColor.clear.cgColor
-        layer.lineWidth = StrokeWidth
+        layer.lineWidth = ClipRecord.progressStrokeWidth
         return layer
     }()
     
@@ -107,7 +95,7 @@ class ClipRecordViewController: UIViewController {
     lazy var lbRecordMethod: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
-        view.text = RecordMethodPrompt
+        view.text = ClipRecord.recordMethodPrompt
         return view
     }()
     
@@ -164,7 +152,13 @@ class ClipRecordViewController: UIViewController {
         view.layer.masksToBounds = true
         return view
     }()
-
+    
+// MARK: 数据
+    
+    /// 视频描述数据
+    var assetMeta: MNAssetMeta!
+    
+// MARK: 系统方法
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -206,13 +200,13 @@ class ClipRecordViewController: UIViewController {
         if btnRecordFrame.origin.x > 0 {
             
             /// 半径
-            let radius = btnRecordFrame.size.width / 2 + StrokeWidth
+            let radius = btnRecordFrame.size.width / 2 + ClipRecord.progressStrokeWidth
             
             /// 设置 layer 的位置大小
             
             let frame: CGRect = {
-                let x = btnRecordFrame.minX - StrokeWidth
-                let y = btnRecordFrame.minY - StrokeWidth
+                let x = btnRecordFrame.minX - ClipRecord.progressStrokeWidth
+                let y = btnRecordFrame.minY - ClipRecord.progressStrokeWidth
                 let length = 2 * radius
                 return CGRect(x: x, y: y, width: length, height: length)
             }()
@@ -222,8 +216,8 @@ class ClipRecordViewController: UIViewController {
             
             /// 圆心
             let center: CGPoint = {
-                let centerX = btnRecordFrame.size.width / 2  + StrokeWidth
-                let centerY = btnRecordFrame.size.height / 2 + StrokeWidth
+                let centerX = btnRecordFrame.size.width / 2  + ClipRecord.progressStrokeWidth
+                let centerY = btnRecordFrame.size.height / 2 + ClipRecord.progressStrokeWidth
                 return CGPoint(x: centerX, y: centerY)
             }()
             
