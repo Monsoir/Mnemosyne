@@ -45,6 +45,9 @@ extension ClipRecordViewController {
         /// 亮灯按钮
         panel.contentView.addSubview(btnLight)
         
+        /// 切换摄像头按钮
+        panel.contentView.addSubview(btnFlipCamera)
+        
         /// 设置约束
         panel.makeLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (ClipRecord.panelHeight, nil)))
         subEffectView.makeLayout(layouter: ClipRecordSubEffectLayout(with: (panel.contentView), constants: (10)))
@@ -54,6 +57,7 @@ extension ClipRecordViewController {
         btnTapToRecord.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 0.3)))
         btnHoldToRecord.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 0.3 * 2)))
         btnLight.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 1.5)))
+        btnFlipCamera.makeLayout(layouter: ClipRecordBtnToRecordLayout(views: (btnTapRecord), constants: (CGSize(width: btnRecordHeight, height: btnRecordHeight), 1.8)))
     }
     
     func setupProcessPanel() {
@@ -63,6 +67,14 @@ extension ClipRecordViewController {
             let view = UIButton(type: .system)
             view.setImage(#imageLiteral(resourceName: "process-back").withRenderingMode(.alwaysOriginal), for: .normal)
             view.addTarget(self, action: #selector(ClipRecordViewController.actionDiscardRecorded(sender:)), for: .touchUpInside)
+            return view
+        }()
+        
+        /// 将视频转换为 GIF
+        let btnConvertToGIF: UIButton = {
+            let view = UIButton(type: .system)
+            view.setImage(#imageLiteral(resourceName: "gif").withRenderingMode(.alwaysOriginal), for: .normal)
+            view.addTarget(self, action: #selector(ClipRecordViewController.actionConvertToGIF(sender:)), for: .touchUpInside)
             return view
         }()
         
@@ -76,31 +88,16 @@ extension ClipRecordViewController {
         
         view.addSubview(processPanel)
         processPanel.contentView.addSubview(btnBack)
+        processPanel.contentView.addSubview(btnConvertToGIF)
         processPanel.contentView.addSubview(btnCheck)
         
         /// 创建约束
-        processPanel.contentView.snp.makeConstraints { (make) in
-            make.edges.equalTo(processPanel)
-        }
-        
-        processPanel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(ClipRecord.panelHeight)
-            make.left.right.equalTo(view)
-            make.height.equalTo(ClipRecord.panelHeight)
-        }
+        processPanel.makeLayout(layouter: ClipRecordProcessPanelLayout(views: view, constants: (ClipRecord.panelHeight, ClipRecord.panelHeight)))
         
         let btnLength = 50
-        btnBack.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: btnLength, height: btnLength))
-            make.centerY.equalTo(processPanel)
-            make.centerX.equalTo(processPanel).multipliedBy(0.5)
-        }
-        
-        btnCheck.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: btnLength, height: btnLength))
-            make.centerY.equalTo(processPanel)
-            make.centerX.equalTo(processPanel).multipliedBy(1.5)
-        }
+        btnBack.makeLayout(layouter: ClipRecordProcessBtnLayout(views: processPanel, constants: (CGSize(width: btnLength, height: btnLength), 0.5)))
+        btnConvertToGIF.makeLayout(layouter: ClipRecordProcessBtnLayout(views: processPanel, constants: (CGSize(width: btnLength, height: btnLength), 1.0)))
+        btnCheck.makeLayout(layouter: ClipRecordProcessBtnLayout(views: processPanel, constants: (CGSize(width: btnLength, height: btnLength), 1.5)))
     }
     
     func setupFakeNavigationBar() {

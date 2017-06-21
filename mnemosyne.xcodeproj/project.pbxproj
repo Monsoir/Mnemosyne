@@ -34,6 +34,10 @@
 		F946BE3D1EE9906000A096D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F946BE3F1EE9906000A096D3 /* Localizable.strings */; };
 		F950F2201EED729F00E64D25 /* TinySystemUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F950F2211EED743700E64D25 /* TinySystemUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; };
+		F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */; };
+		F968F2671EF8B4BE0094BAAC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2661EF8B4BE0094BAAC /* AppConstants.swift */; };
+		F968F26D1EF8C6AE0094BAAC /* ClipRecordProcessBtnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F26C1EF8C6AE0094BAAC /* ClipRecordProcessBtnLayout.swift */; };
+		F968F26F1EF8C6BF0094BAAC /* ClipRecordProcessPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F26E1EF8C6BF0094BAAC /* ClipRecordProcessPanelLayout.swift */; };
 		F969557F1EF7C91600E0CA2D /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969557E1EF7C91600E0CA2D /* Asset.swift */; };
 		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
 		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -135,6 +139,10 @@
 		F946BE3E1EE9906000A096D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F946BE401EE9906200A096D3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinySystemUtils.framework; sourceTree = "<group>"; };
+		F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateFileExtension.swift; sourceTree = "<group>"; };
+		F968F2661EF8B4BE0094BAAC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F968F26C1EF8C6AE0094BAAC /* ClipRecordProcessBtnLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordProcessBtnLayout.swift; sourceTree = "<group>"; };
+		F968F26E1EF8C6BF0094BAAC /* ClipRecordProcessPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordProcessPanelLayout.swift; sourceTree = "<group>"; };
 		F969557E1EF7C91600E0CA2D /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
 		F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordFakeNavigationBarLayout.swift; sourceTree = "<group>"; };
@@ -249,6 +257,7 @@
 				F931E8C61EEE43110054ADD7 /* Record */,
 				F94423811EDFFF5000155A18 /* protocols */,
 				F92214DA1ED6CCA0001178F2 /* AppDelegate.swift */,
+				F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */,
 				F92214DC1ED6CCA0001178F2 /* ViewController.swift */,
 				F92214DE1ED6CCA0001178F2 /* Main.storyboard */,
 				F92214E11ED6CCA0001178F2 /* Assets.xcassets */,
@@ -282,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				F931E8C71EEE43740054ADD7 /* ClipRecordViewController.swift */,
-				F9873EB61EF7BD4000AF87DA /* ClipRecordContants.swift */,
 				F9873EB51EF7B5CD00AF87DA /* ClipRecordViewControllerExtension */,
 				F93C541A1EF381F500C31E5F /* ClipRecordViewControllerViewLayouts */,
 			);
@@ -292,12 +300,8 @@
 		F93C541A1EF381F500C31E5F /* ClipRecordViewControllerViewLayouts */ = {
 			isa = PBXGroup;
 			children = (
-				F93C541B1EF3825800C31E5F /* ClipRecordPanelLayout.swift */,
-				F93C541D1EF3889700C31E5F /* ClipRecordSubEffectLayout.swift */,
-				F93C541F1EF39A9E00C31E5F /* ClipRecordMethodLayout.swift */,
-				F90D35EA1EF39D4800BE0C36 /* ClipRecordBtnRecordLayout.swift */,
-				F90D35EE1EF3AC6900BE0C36 /* ClipRecordBtnToRecordLayout.swift */,
-				F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */,
+				F968F2681EF8C14D0094BAAC /* Panel */,
+				F968F2691EF8C1560094BAAC /* ProcessPanel */,
 			);
 			path = ClipRecordViewControllerViewLayouts;
 			sourceTree = "<group>";
@@ -323,6 +327,28 @@
 				F93C54181EF37E4A00C31E5F /* Layoutable.swift */,
 			);
 			path = protocols;
+			sourceTree = "<group>";
+		};
+		F968F2681EF8C14D0094BAAC /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				F93C541B1EF3825800C31E5F /* ClipRecordPanelLayout.swift */,
+				F93C541D1EF3889700C31E5F /* ClipRecordSubEffectLayout.swift */,
+				F93C541F1EF39A9E00C31E5F /* ClipRecordMethodLayout.swift */,
+				F90D35EA1EF39D4800BE0C36 /* ClipRecordBtnRecordLayout.swift */,
+				F90D35EE1EF3AC6900BE0C36 /* ClipRecordBtnToRecordLayout.swift */,
+				F97C6D4D1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift */,
+			);
+			path = Panel;
+			sourceTree = "<group>";
+		};
+		F968F2691EF8C1560094BAAC /* ProcessPanel */ = {
+			isa = PBXGroup;
+			children = (
+				F968F26E1EF8C6BF0094BAAC /* ClipRecordProcessPanelLayout.swift */,
+				F968F26C1EF8C6AE0094BAAC /* ClipRecordProcessBtnLayout.swift */,
+			);
+			path = ProcessPanel;
 			sourceTree = "<group>";
 		};
 		F969557D1EF7C90300E0CA2D /* Models */ = {
@@ -389,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				F9C45C531EEA407E00EFA6B3 /* UIContants.swift */,
+				F9873EB61EF7BD4000AF87DA /* ClipRecordContants.swift */,
+				F968F2661EF8B4BE0094BAAC /* AppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -691,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92214DD1ED6CCA0001178F2 /* ViewController.swift in Sources */,
+				F968F2671EF8B4BE0094BAAC /* AppConstants.swift in Sources */,
 				F9873EB71EF7BD4100AF87DA /* ClipRecordContants.swift in Sources */,
 				F9BB3B141EE7FB3900770A01 /* ClipViewController.swift in Sources */,
 				F9B4A8411EEA5DFD0033783A /* AssetPreviewCell.swift in Sources */,
@@ -698,10 +727,12 @@
 				F9C45C4F1EEA3E3E00EFA6B3 /* Listable.swift in Sources */,
 				F969557F1EF7C91600E0CA2D /* Asset.swift in Sources */,
 				F90D35EF1EF3AC6900BE0C36 /* ClipRecordBtnToRecordLayout.swift in Sources */,
+				F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */,
 				F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */,
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
 				F97C6D4E1EF7705000561E96 /* ClipRecordFakeNavigationBarLayout.swift in Sources */,
+				F968F26F1EF8C6BF0094BAAC /* ClipRecordProcessPanelLayout.swift in Sources */,
 				F97C6D561EF791A700561E96 /* ClipRecordViewControllerDelegates.swift in Sources */,
 				F9BB3B181EE7FB5D00770A01 /* PicViewController.swift in Sources */,
 				F9885EB01EEAA20A0078DAF2 /* SoundCollectionViewCell.swift in Sources */,
@@ -721,6 +752,7 @@
 				F97C6D541EF790DC00561E96 /* ClipRecordViewControllerKVO.swift in Sources */,
 				F97C6D521EF7906C00561E96 /* ClipRecordViewControllerSetups.swift in Sources */,
 				F9885EAC1EEA8DD50078DAF2 /* AssetViewController.swift in Sources */,
+				F968F26D1EF8C6AE0094BAAC /* ClipRecordProcessBtnLayout.swift in Sources */,
 				F93C541C1EF3825800C31E5F /* ClipRecordPanelLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

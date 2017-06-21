@@ -173,7 +173,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if __has_feature(modules)
 @import ObjectiveC;
-@import Foundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -187,103 +186,7 @@ SWIFT_MODULE_NAMESPACE_PUSH("FileManagerShortcutKit")
 
 SWIFT_CLASS("_TtC22FileManagerShortcutKit20FileManagerShortcuts")
 @interface FileManagerShortcuts : NSObject
-/// 创建文件夹
-/// \param sandBoxURL 沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param path 在沙盒路径中的相对路径
-///
-/// \param createIfNeeded 是否创建路径中不存在的文件夹，true 则创建，否则，不创建
-///
-/// \param attributes 文件夹的属性，默认为默认属性，即 nil
-///
-+ (BOOL)createDirectoryAt:(NSURL * _Nonnull)sandBoxURL relativePath:(NSString * _Nonnull)path shouldCreateFolderIfNeeded:(BOOL)createFolderIfNeeded attributes:(NSDictionary<NSString *, id> * _Nullable)attributes error:(NSError * _Nullable * _Nullable)error;
-/// 移动文件
-/// \param fromsandboxDirectory 源文件沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param fromRelativePath 源文件在沙盒路径中的相对路径
-///
-/// \param toSandBoxDirectory 目标文件位置的沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param toRelativePath 目标文件在沙盒路径中的相对路径
-///
-+ (BOOL)moveItemFromFromsandboxDirectory:(NSURL * _Nonnull)fromsandboxDirectory fromRelativePath:(NSString * _Nonnull)fromRelativePath toSandBoxDirectory:(NSURL * _Nonnull)toSandBoxDirectory toRelativePath:(NSString * _Nonnull)toRelativePath error:(NSError * _Nullable * _Nullable)error;
-/// 重命名文件
-/// \param sandboxURL 源文件沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param relativePath 源文件在沙盒路径中的相对路径
-///
-/// \param oldName 源文件重命名前的名称
-///
-/// \param newName 源文件重命名后的名称
-///
-+ (BOOL)renameItemAtSandboxURL:(NSURL * _Nonnull)sandboxURL relativePath:(NSString * _Nonnull)relativePath fromOldName:(NSString * _Nonnull)oldName toNewName:(NSString * _Nonnull)newName error:(NSError * _Nullable * _Nullable)error;
-/// 删除文件
-/// \param sandboxURL 文件所在的沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param relativePath 文件所在沙盒路径中的相对位置
-///
-+ (BOOL)removeItemAtSandboxURL:(NSURL * _Nonnull)sandboxURL relativePath:(NSString * _Nonnull)relativePath error:(NSError * _Nullable * _Nullable)error;
-/// 判断文件或文件夹是否存在
-/// \param sandboxURL 文件的沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param relativePath 文件在沙盒路径中的相对路径
-///
-///
-/// returns:
-/// true 若文件存在，否则 false
-+ (BOOL)itemExistsAtSandboxURL:(NSString * _Nonnull)sandboxURL relativePath:(NSString * _Nonnull)relativePath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface FileManagerShortcuts (SWIFT_EXTENSION(FileManagerShortcutKit))
-/// 创建文件夹
-/// \param sandBoxURL 沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param path 在沙盒路径中的相对路径
-///
-/// \param createFolderIfNeeded 是否创建路径中不存在的文件夹，true 则创建，否则，不创建
-///
-/// \param attributes 文件夹的属性，默认为默认属性，即 nil
-///
-/// \param completion 文件夹完成后回调
-///
-///
-/// throws:
-/// <#throws value description#>
-+ (BOOL)createDirectoryAt:(NSURL * _Nonnull)sandBoxURL relativePath:(NSString * _Nonnull)path shouldCreateFolderIfNeeded:(BOOL)createFolderIfNeeded attributes:(NSDictionary<NSString *, id> * _Nullable)attributes error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nullable)(void))completion;
-/// 移动文件
-/// \param fromsandboxDirectory 源文件沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param fromRelativePath 源文件在沙盒路径中的相对路径
-///
-/// \param toSandBoxDirectory 目标文件位置的沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param toRelativePath 目标文件在沙盒路径中的相对路径
-///
-/// \param completion 文件移动完成后的回调
-///
-+ (BOOL)moveItemFromFromsandboxDirectory:(NSURL * _Nonnull)fromsandboxDirectory fromRelativePath:(NSString * _Nonnull)fromRelativePath toSandBoxDirectory:(NSURL * _Nonnull)toSandBoxDirectory toRelativePath:(NSString * _Nonnull)toRelativePath error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nullable)(void))completion;
-/// 重命名文件
-/// \param sandboxURL 源文件沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param relativePath 源文件在沙盒路径中的相对路径
-///
-/// \param oldName 源文件重命名前的名称
-///
-/// \param newName 源文件重命名后的名称
-///
-/// \param completion 文件重命名完成后的回调
-///
-+ (BOOL)renameItemAtSandboxURL:(NSURL * _Nonnull)sandboxURL relativePath:(NSString * _Nonnull)relativePath fromOldName:(NSString * _Nonnull)oldName toNewName:(NSString * _Nonnull)newName error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nullable)(void))completion;
-/// 删除文件
-/// \param sandboxURL 文件所在的沙盒路径，如 Document, Library/Caches, tmp
-///
-/// \param relativePath 文件所在沙盒路径中的相对位置
-///
-/// \param completion 文件删除完成后的回调
-///
-+ (BOOL)removeItemAtSandboxURL:(NSURL * _Nonnull)sandboxURL relativePath:(NSString * _Nonnull)relativePath error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nullable)(void))completion;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

@@ -123,6 +123,14 @@ class ClipRecordViewController: UIViewController {
         return view
     }()
     
+    /// 切换摄像头
+    lazy var btnFlipCamera: UIButton = {
+        let view = UIButton(type: .system)
+        view.setImage(#imageLiteral(resourceName: "flip-camera").withRenderingMode(.alwaysOriginal), for: .normal)
+        view.addTarget(self, action: #selector(ClipRecordViewController.actionFlipCamera(sender:)), for: .touchUpInside)
+        return view
+    }()
+    
     /// 录制面板
     lazy var panel: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .light))
@@ -156,7 +164,7 @@ class ClipRecordViewController: UIViewController {
 // MARK: 数据
     
     /// 视频描述数据
-    var assetMeta: MNAssetMeta!
+    var assetMeta = MNAssetMeta()
     
 // MARK: 系统方法
     override func viewDidLoad() {

@@ -47,7 +47,7 @@ extension ClipRecordViewController {
             self.btnHoldRecord.isHidden = isTap
             self.btnRecord = isTap ? self.btnTapRecord : self.btnHoldRecord
             self.btnTapToRecord.alpha = isTap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
-            self.btnHoldToRecord.alpha = isTap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
+            self.btnHoldToRecord.alpha = isTap ? ClipRecord.deactivatedAlpha : ClipRecord.activatedAlpha
             self.lbRecordMethod.text = isTap ? NSLocalizedString("TapToRecord", comment: "") : NSLocalizedString("HoldToRecord", comment: "")
         }
     }
@@ -70,8 +70,12 @@ extension ClipRecordViewController {
         btnTapToRecord.alpha = recordMethod == .tap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
         btnHoldToRecord.isEnabled = true
         btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
+        btnFlipCamera.isEnabled = true
         
         fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
+        
+        // 如果有进度动画，撤销
+        progressLayer.removeAnimation(forKey: ClipRecord.strokeProgressAnimationName)
         
         progressLayer.path = nil
     }
@@ -83,6 +87,7 @@ extension ClipRecordViewController {
         btnHoldToRecord.isEnabled = false
         btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.deactivatedAlpha : 0
         lbRecordStatus.text = NSLocalizedString("StatusRecording", comment: "")
+        btnFlipCamera.isEnabled = false
         
         fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-ClipRecord.barHeight))))
         
@@ -120,9 +125,7 @@ extension ClipRecordViewController {
         panel.updateLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (nil, on ? 0 : ClipRecord.panelHeight)))
         
         setupProcessPanelIfNeeded()
-        processPanel.snp.updateConstraints { (make) in
-            make.bottom.equalTo(view).offset(on ? ClipRecord.panelHeight : 0)
-        }
+        processPanel.updateLayout(layouter: ClipRecordProcessPanelLayout(views: view, constants: (nil, on ? ClipRecord.panelHeight : 0)))
     }
     
     fileprivate func setupProcessPanelIfNeeded() {

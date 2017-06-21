@@ -18,19 +18,19 @@
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/i386.swiftdoc</key>
 		<data>
-		UgAD5LA/kRVZ5WWiuCK/5ULmu0o=
+		LfuB9WnyV4wTzEQSU+TGbfiQ3zs=
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		NvL08TNRXy953XA8JKCaliFbHW8=
+		+TnjLq6YEBMu6Qw6PNpdnBmyBxY=
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		kLBea0cDiwR0xl9jJ3IsoqNzcyQ=
+		qmFEJuEjrK/aav7Y408DVyMmvKw=
 		</data>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		jtEWUcXdLnPEUq9kHrixsk3AcGg=
+		R3WoQtzYVLb69070qOgr/wKN0cg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,44 +65,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UgAD5LA/kRVZ5WWiuCK/5ULmu0o=
+			LfuB9WnyV4wTzEQSU+TGbfiQ3zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			yPaC4lJnlKyUkUg8KIqm/ZjfjtNA7AhnggskttQ5ewY=
+			UUy9QiYE3c4BeissPlJ/K2TpwitQZnF8K++1MmIciKw=
 			</data>
 		</dict>
 		<key>Modules/MediaRecordKit.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NvL08TNRXy953XA8JKCaliFbHW8=
+			+TnjLq6YEBMu6Qw6PNpdnBmyBxY=
 			</data>
 			<key>hash2</key>
 			<data>
-			+9Chdki55W9MJ4jJm4HXz71FZGNVJFiWpMFGoG8nNio=
+			RsOb6TX2SJ1zbanqrnLbb5O8zqupLBjRFXDjj+lFT8k=
 			</data>
 		</dict>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kLBea0cDiwR0xl9jJ3IsoqNzcyQ=
+			qmFEJuEjrK/aav7Y408DVyMmvKw=
 			</data>
 			<key>hash2</key>
 			<data>
-			fzgHS4qbKW66IPpoY6D0EalGaqyDZwRfhI27LXo8LQk=
+			oI6cTb5MxiX1CNkTOCLVbYSmT4Nfpwq16laHNQPR5x8=
 			</data>
 		</dict>
 		<key>Modules/MediaRecordKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jtEWUcXdLnPEUq9kHrixsk3AcGg=
+			R3WoQtzYVLb69070qOgr/wKN0cg=
 			</data>
 			<key>hash2</key>
 			<data>
-			wXA06CX19Eekv9HQrcY01xK22jN3iDfuxvHFTWsH34M=
+			R2DGHa/DG9hDDLwq9h+k3CVnE8i7BZfNw7oPNDa6IY4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

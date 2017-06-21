@@ -8,7 +8,6 @@ target 'mnemosyne' do
   # Pods for mnemosyne
   pod 'FLAnimatedImage', '~> 1.0'
   pod 'FMDB'
-  pod 'ReactiveCocoa', '~> 5.0.0'
   pod 'SnapKit'
   pod "NSGIF", "~> 1.0"
 
