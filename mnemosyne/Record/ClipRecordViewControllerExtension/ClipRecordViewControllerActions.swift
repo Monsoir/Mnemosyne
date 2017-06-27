@@ -17,20 +17,12 @@ extension ClipRecordViewController {
     
     @objc func actionTouchUpInside(sender: UIButton) {
         sender.alpha = 1.0
-        
-        if sender == btnTapRecord {
-            recordStatus = recordStatus == .recording ? .recorded : .recording
-        } else if sender == btnHoldRecord {
-            recordStatus = .recorded
-        }
+        recordStatus = .recorded
     }
     
     @objc func actionTouchDown(sender: UIButton) {
         sender.alpha = 0.5
-        
-        if sender == btnHoldRecord {
-            recordStatus = .recording
-        }
+        recordStatus = .recording
     }
     
     @objc func actionTouchUpOutside(sender: UIButton) {
@@ -38,8 +30,8 @@ extension ClipRecordViewController {
         
         if recordStatus == .recording {
             recorder.stopRecording()
+            recordStatus = .recorded
         }
-        recordStatus = .cancelRecording
     }
     
     func resetRecording() {
@@ -50,23 +42,13 @@ extension ClipRecordViewController {
     func startRecording() {
         assetMeta = MNAssetMeta()
         assetMeta.type = .clip
-        // 设置 assetMeta 在回调方法中
+        // 设置 assetMeta 属性在回调方法中
         recorder.startRecording(forDuration: TimeInterval(ClipRecord.recordDuration))
     }
     
     /// 结束录制
     func finishRecording() {
         recorder.stopRecording()
-    }
-    
-    /// 取消录制
-    func cancelRecording() {
-        recordStatus = .notRecording
-    }
-    
-    /// 改变录制方式
-    @objc func actionChangeRecordMethod(sender: UIButton) {
-        recordMethod = sender == btnTapToRecord ? .tap : .hold
     }
     
     /// 开关灯

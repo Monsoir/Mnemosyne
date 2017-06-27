@@ -50,3 +50,7 @@ struct PreviewCellConstants {
         static let height = 100
     }
 }
+
+struct AppUIConstants {
+    static let statusBarHeight = 20
+}

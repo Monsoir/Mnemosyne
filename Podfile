@@ -10,6 +10,7 @@ target 'mnemosyne' do
   pod 'FMDB'
   pod 'SnapKit'
   pod "NSGIF", "~> 1.0"
+  pod 'RealmSwift'
 
   target 'mnemosyneTests' do
     inherit! :search_paths

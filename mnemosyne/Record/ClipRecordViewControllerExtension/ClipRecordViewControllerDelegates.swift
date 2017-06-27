@@ -24,37 +24,16 @@ extension ClipRecordViewController: CAAnimationDelegate {
 // MARK: - VideoRecorderDelegate
 extension ClipRecordViewController: VideoRecorderDelegate {
     func fileDidStartOutputToURL(_ fileURL: URL, fileName: String) {
-        print("\(fileURL)")
-        print("\(fileName)")
+        #if DEBUG
+            print("\(fileURL)")
+            print("\(fileName)")
+        #endif
     }
     
     func fileDidFinishOutputToURL(_ outputFileURL: URL, fileName: String, error: Error?) {
         assetMeta.identifier = fileName
         assetMeta.nickName = fileName
         assetMeta.location = outputFileURL.absoluteString
-        
-        // 若此时状态为 .notRecording，则表示是在录制进行中取消
-        if recordStatus == .notRecording {
-            /**
-             再重设状态，由于此函数的调用后于 resetRecording
-             */
-            if !assetMeta.location.isEmpty {
-                FileManagerShortcuts.deleteItemAt(URL(string: assetMeta.location)!) { (result) in
-                    #if DEBUG
-                        print("cancel Recording")
-                        print(result)
-                    #endif
-                }
-            }
-        } else {
-            recorder.stopReceivingEnvironment()
-        }
-        
-        #if DEBUG
-            print(recordStatus.rawValue)
-            print("\(outputFileURL)")
-            print("\(fileName)")
-            print(assetMeta)
-        #endif
+        recorder.stopReceivingEnvironment()
     }
 }

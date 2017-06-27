@@ -21,12 +21,3 @@ PermissionDeniedTitle = "权限被拒绝了";
 CameraPermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 使用照相机";
 MicrophonePermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 使用麦克风";
 PhotosPermissionDeniedDetail = "请到 Mnemosyne 的系统面板允许 Mnemosyne 访问您的照片";
-
-// 状态
-StatusRecording = "正在录制...";
-StatusNotRecording = "准备录制";
-StatusRecorded = "录制结束";
-
-// 录制方式
-TapToRecord = "点击录制";
-HoldToRecord = "按住录制";

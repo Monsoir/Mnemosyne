@@ -9,7 +9,7 @@
 import UIKit
 
 struct ClipRecord {
-    static let progressStrokeWidth = CGFloat(3)
+    static let progressStrokeWidth = CGFloat(5)
     static let deactivatedAlpha = CGFloat(0.4)
     static let activatedAlpha = CGFloat(1.0)
     static let panelHeight = CGFloat(120)
@@ -20,8 +20,9 @@ struct ClipRecord {
     }()
     static let strokeProgressAnimationName = "Stroke progress"
     
+    static let buttonAlphaLevel1 = CGFloat(0.5)
+    static let buttonAlphaLevel2 = CGFloat(0.6)
+    
     /// For testing
-    static let recordMethod = ClipRecordMethod.tap
-    static let recordMethodPrompt = NSLocalizedString("TapToRecord", comment: "")
     static let recordDuration = 5
 }

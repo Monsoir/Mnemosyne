@@ -12,6 +12,7 @@ import SnapKit
 protocol Layoutable {
     func layoutMaker() -> (ConstraintMaker) -> Void
     func layoutUpdater() -> (ConstraintMaker) -> Void
+    func layoutRemaker() -> (ConstraintMaker) -> Void
 }
 
 extension Layoutable {
@@ -26,6 +27,12 @@ extension Layoutable {
             
         }
     }
+    
+    func layoutRemaker() -> (ConstraintMaker) -> Void {
+        return { make in
+            
+        }
+    }
 }
 
 // MARK: - 自动布局的 extension
@@ -36,5 +43,9 @@ extension UIView {
     
     func updateLayout(layouter: Layoutable) {
         snp.updateConstraints(layouter.layoutUpdater())
+    }
+    
+    func remakeLayout(layouter: Layoutable) {
+        snp.remakeConstraints(layouter.layoutRemaker())
     }
 }

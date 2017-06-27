@@ -13,7 +13,10 @@ extension ClipRecordViewController {
     @objc func recordingStatusDidChange(change: [NSKeyValueChangeKey : Any]?) {
         
         /// 页面第一次运行，忽略
-        guard let _ = change?[.oldKey] else { return }
+        guard let _ = change?[.oldKey] else {
+            DispatchQueue.main.async { self.updateNotRecordingUI() }
+            return
+        }
         
         guard let c = change else { return }
         
@@ -21,7 +24,6 @@ extension ClipRecordViewController {
         let oldStatus = ClipRecordStatus(rawValue: c[.oldKey] as! Int)
         if status == oldStatus { return }
         
-        self.setNeedsStatusBarAppearanceUpdate()
         switch status {
         case .notRecording:
             resetRecording()
@@ -32,64 +34,22 @@ extension ClipRecordViewController {
         case .recorded:
             finishRecording()
             DispatchQueue.main.async { self.updateFinishRecordingUI() }
-        case .cancelRecording:
-            cancelRecording()
-        }
-    }
-    
-    @objc func recordMethodDidChange(change: [NSKeyValueChangeKey : Any]?) {
-        guard let c = change else { return }
-        
-        let rm = ClipRecordMethod(rawValue: c[.newKey] as! Int)
-        let isTap = rm == .tap
-        DispatchQueue.main.async {
-            self.btnTapRecord.isHidden = !isTap
-            self.btnHoldRecord.isHidden = isTap
-            self.btnRecord = isTap ? self.btnTapRecord : self.btnHoldRecord
-            self.btnTapToRecord.alpha = isTap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
-            self.btnHoldToRecord.alpha = isTap ? ClipRecord.deactivatedAlpha : ClipRecord.activatedAlpha
-            self.lbRecordMethod.text = isTap ? NSLocalizedString("TapToRecord", comment: "") : NSLocalizedString("HoldToRecord", comment: "")
         }
     }
     
     /// 未进行录制的 UI 设置
     func updateNotRecordingUI() {
-        /**
-         更新内容包括：
-         - 显示操作面板
-         - 隐藏录制完成后的处理面板
-         - 录制方式选取按钮的状态
-         - 导航栏上的 title
-         - 进度条
-         **/
-        
-        togglePanel(on: true)
-        
-        lbRecordStatus.text = NSLocalizedString("StatusNotRecording", comment: "")
-        btnTapToRecord.isEnabled = true
-        btnTapToRecord.alpha = recordMethod == .tap ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
-        btnHoldToRecord.isEnabled = true
-        btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.activatedAlpha : ClipRecord.deactivatedAlpha
-        btnFlipCamera.isEnabled = true
-        
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
+        make(them: [btnBack, recordOperationContainer, btnHoldRecord, btnFlipCamera, btnLight], enable: true)
+        make(them: [btnDiscard, btnGIF, btnDone], enable: false)
         
         // 如果有进度动画，撤销
         progressLayer.removeAnimation(forKey: ClipRecord.strokeProgressAnimationName)
-        
         progressLayer.path = nil
     }
     
     /// 正在录制时的 UI 设置
     func updateRecordingUI() {
-        btnTapToRecord.isEnabled = false
-        btnTapToRecord.alpha = recordMethod == .tap ? ClipRecord.deactivatedAlpha : 0
-        btnHoldToRecord.isEnabled = false
-        btnHoldToRecord.alpha = recordMethod == .hold ? ClipRecord.deactivatedAlpha : 0
-        lbRecordStatus.text = NSLocalizedString("StatusRecording", comment: "")
-        btnFlipCamera.isEnabled = false
-        
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, CGFloat(-ClipRecord.barHeight))))
+        make(them: [btnBack, btnFlipCamera, btnLight, btnDiscard, btnGIF, btnDone], enable: false)
         
         progressLayer.path = progressStroker!.cgPath
         progressLayer.strokeColor = UIColor.black.cgColor
@@ -109,28 +69,16 @@ extension ClipRecordViewController {
     
     /// 录制完成时的 UI 设置
     func updateFinishRecordingUI() {
-        /**
-         更新内容包括：
-         - 隐藏操作面板
-         - 显示录制完成后的处理面板
-         **/
-        
-        setupProcessPanelIfNeeded()
-        togglePanel(on: false)
-        lbRecordStatus.text = NSLocalizedString("StatusRecorded", comment: "")
-        fakeNavigationBar.updateLayout(layouter: ClipRecordFakeNavigationBarLayout(views: view, constants: (nil, 0)))
+        make(them: [btnBack, recordOperationContainer, btnHoldRecord, btnFlipCamera, btnLight], enable: false)
+        make(them: [btnDiscard, btnGIF, btnDone], enable: true)
     }
     
-    fileprivate func togglePanel(on: Bool) {
-        panel.updateLayout(layouter: ClipRecordPanelLayout(with: (view), constants: (nil, on ? 0 : ClipRecord.panelHeight)))
-        
-        setupProcessPanelIfNeeded()
-        processPanel.updateLayout(layouter: ClipRecordProcessPanelLayout(views: view, constants: (nil, on ? ClipRecord.panelHeight : 0)))
-    }
-    
-    fileprivate func setupProcessPanelIfNeeded() {
-        if !processPanel.isDescendant(of: view) {
-            setupProcessPanel()
+    fileprivate func make(them views: [UIView], enable able: Bool) {
+        views.forEach { (aView) in
+            aView.isHidden = !able
+            if aView is UIButton {
+                (aView as! UIButton).isEnabled = able
+            }
         }
     }
 }

@@ -4,20 +4,28 @@ PODS:
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - NSGIF (1.2)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
   - SnapKit (3.1.2)
 
 DEPENDENCIES:
   - FLAnimatedImage (~> 1.0)
   - FMDB
   - NSGIF (~> 1.0)
+  - RealmSwift
   - SnapKit
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   NSGIF: 73b435330174a9d04db9886a232c605a3e8139b5
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: b4d75c3adaf5d780dc18fc6a806ab90bd3798228
+PODFILE CHECKSUM: a27216c16e39349ba18b193558ab2646dc722b50
 
 COCOAPODS: 1.2.0.rc.1
