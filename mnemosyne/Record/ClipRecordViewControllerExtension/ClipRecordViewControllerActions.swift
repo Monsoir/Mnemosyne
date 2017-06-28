@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NSGIF
+import Regift
 import FileManagerShortcutKit
 
 extension ClipRecordViewController {
@@ -144,7 +144,14 @@ extension ClipRecordViewController {
     func saveFileAsGIF(completion: @escaping () -> Void) {
         let srcURL = URL(string: assetMeta.location)
         let asset = assetMeta
-        NSGIF.optimalGIFfromURL(srcURL, loopCount: 0) { (tempURL) in
+        
+        /// 一个 GIF 中含有的帧数
+        let frameCount = 16
+        
+        /// 每帧之间的时间间隔
+        let delayTime = Float(0.2)
+        
+        Regift.createGIFFromSource(srcURL!, frameCount: frameCount, delayTime: delayTime) { (tempURL) in
             let extensionName = tempURL?.pathExtension
             let destURL: URL = {
                 let temp = FolderURL.clipURL.appendingPathComponent(asset.identifier).appendingPathExtension(extensionName!)
@@ -159,5 +166,6 @@ extension ClipRecordViewController {
                 completion()
             })
         }
+        
     }
 }

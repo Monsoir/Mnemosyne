@@ -116,6 +116,39 @@ yyyyMMddHHmmss -> 年月日时分秒
 	self.setNeedsStatusBarAppearanceUpdate()
 	```
 
+## 使用 AVPlayerLayer 播放视频
+
+```swift
+let player = AVPlayer(url: <#url#>)
+layer = AVPlayerLayer(player: player)
+layer?.frame = view.bounds
+view.layer.addSubLayer(layer)
+player.play()
+```
+
+---
+
+若需要监听视频播放完成，则设置
+
+通知监听
+
+```swift
+player.actionAtItemEnd = .none
+
+NotificationCenter.default.addObserver(self, selector: #selector(ClipRecordViewController.playerItemDidReachEnd(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
+```
+
+通知回调
+
+```swift
+@objc func playerItemDidReachEnd(_ notification: Notification) {
+   // 播放完之后，重新播放
+   let playerItem = notification.object as! AVPlayerItem
+   playerItem.seek(to: kCMTimeZero)
+   
+}
+```
+
 ## 简要
 
 - 子类可以直接调用父类的 extension 中的方法

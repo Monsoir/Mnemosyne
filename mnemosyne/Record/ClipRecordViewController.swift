@@ -43,6 +43,9 @@ class ClipRecordViewController: UIViewController {
     /// 录制中预览层
     var recordingPreviewLayer: AVCaptureVideoPreviewLayer? = nil
     
+    /// 录制完成预览层
+    var recordedPreviewLayer: AVPlayerLayer? = nil
+    
     // MARK: View
     
     /// 退出录制

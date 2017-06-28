@@ -4,6 +4,7 @@
 
 - FMDB
 - NSGIF
+- [Regift](https://github.com/matthewpalmer/Regift)
 - FLAnimatedImage
 - ReactiveCocoa
 

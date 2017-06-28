@@ -42,6 +42,12 @@ extension ClipRecordViewController {
         make(them: [btnBack, recordOperationContainer, btnHoldRecord, btnFlipCamera, btnLight], enable: true)
         make(them: [btnDiscard, btnGIF, btnDone], enable: false)
         
+        // 如果有录制完成后预览层，则移除
+        if let p = recordedPreviewLayer {
+            p.removeFromSuperlayer()
+            recordedPreviewLayer = nil
+        }
+        
         // 如果有进度动画，撤销
         progressLayer.removeAnimation(forKey: ClipRecord.strokeProgressAnimationName)
         progressLayer.path = nil

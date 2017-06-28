@@ -92,5 +92,6 @@ extension ClipRecordViewController {
     
     func unsetupObserver() {
         recordStatusObserver = nil
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
 }

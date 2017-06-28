@@ -9,7 +9,8 @@ target 'mnemosyne' do
   pod 'FLAnimatedImage', '~> 1.0'
   pod 'FMDB'
   pod 'SnapKit'
-  pod "NSGIF", "~> 1.0"
+#  pod "NSGIF", "~> 1.0"
+  pod "Regift"
   pod 'RealmSwift'
 
   target 'mnemosyneTests' do

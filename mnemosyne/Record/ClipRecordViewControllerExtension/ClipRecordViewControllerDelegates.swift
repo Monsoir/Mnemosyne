@@ -9,6 +9,7 @@
 import UIKit
 import MediaRecordKit
 import FileManagerShortcutKit
+import AVFoundation
 
 // MARK: - CAAnimationDelegate
 extension ClipRecordViewController: CAAnimationDelegate {
@@ -35,5 +36,26 @@ extension ClipRecordViewController: VideoRecorderDelegate {
         assetMeta.nickName = fileName
         assetMeta.location = outputFileURL.absoluteString
         recorder.stopReceivingEnvironment()
+        
+        // 预览已录制
+        let player = AVPlayer(url: URL(string: assetMeta.location)!)
+        player.actionAtItemEnd = .none
+        recordedPreviewLayer = AVPlayerLayer(player: player)
+        recordedPreviewLayer?.frame = view.bounds
+        NotificationCenter.default.addObserver(self, selector: #selector(ClipRecordViewController.playerItemDidReachEnd(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
+        DispatchQueue.main.async {
+            self.view.layer.insertSublayer(self.recordedPreviewLayer!, above: self.recordingPreviewLayer)
+            player.play()
+        }
+    }
+    
+    /// 视频预览播放完成后的回调
+    ///
+    /// - Parameter notification: 消息内容
+    @objc func playerItemDidReachEnd(_ notification: Notification) {
+        // 播放完之后，重新播放
+        let playerItem = notification.object as! AVPlayerItem
+        playerItem.seek(to: kCMTimeZero)
+        
     }
 }
