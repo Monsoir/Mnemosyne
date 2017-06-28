@@ -12,6 +12,7 @@ import FileManagerShortcutKit
 /// 创建放置资源的各个文件夹
 ///
 func createAssetFolders() {
+    FileManagerShortcuts.createFolderAt(FolderURL.databasesURL, completion: nil)
     FileManagerShortcuts.createFolderAt(FolderURL.clipURL, completion: nil)
     FileManagerShortcuts.createFolderAt(FolderURL.soundURL, completion: nil)
     FileManagerShortcuts.createFolderAt(FolderURL.picURL, completion: nil)

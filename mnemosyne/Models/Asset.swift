@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum MnemosyneAssetType {
+enum MnemosyneAssetType: Int {
     case none
     case clip // 视频
     case gif // GIF
@@ -33,3 +34,20 @@ struct MNAssetMeta {
         self.location = location
     }
 }
+
+class MNAsset: Object {
+    @objc dynamic var identifier = ""
+    @objc dynamic var nickName = ""
+    @objc dynamic var type = 0
+    @objc dynamic var location = ""
+    @objc dynamic var remark = ""
+}
+
+class ClipAssets: MNAsset {
+    @objc dynamic var thumbnailLocation = ""
+}
+
+typealias SoundAsset = MNAsset
+typealias PicAsset = MNAsset
+
+

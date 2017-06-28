@@ -32,6 +32,7 @@
 		F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */; };
 		F968F2671EF8B4BE0094BAAC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2661EF8B4BE0094BAAC /* AppConstants.swift */; };
 		F969557F1EF7C91600E0CA2D /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969557E1EF7C91600E0CA2D /* Asset.swift */; };
+		F9722B931F03A357004E1A33 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9722B921F03A357004E1A33 /* RealmUtils.swift */; };
 		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
 		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F97C6D501EF78D1800561E96 /* ClipRecordViewControllerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */; };
@@ -132,6 +133,7 @@
 		F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateFileExtension.swift; sourceTree = "<group>"; };
 		F968F2661EF8B4BE0094BAAC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		F969557E1EF7C91600E0CA2D /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		F9722B921F03A357004E1A33 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
 		F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerActions.swift; sourceTree = "<group>"; };
 		F97C6D511EF7906C00561E96 /* ClipRecordViewControllerSetups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerSetups.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				F9F39DBF1EEFA14500EF365F /* MNKeyValueObserver.swift */,
+				F9722B921F03A357004E1A33 /* RealmUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */,
 				F97E76891F02979100CB2998 /* ClipRecordTopRightFirstBtnLayout.swift in Sources */,
 				F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */,
+				F9722B931F03A357004E1A33 /* RealmUtils.swift in Sources */,
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
 				F97C6D561EF791A700561E96 /* ClipRecordViewControllerDelegates.swift in Sources */,
