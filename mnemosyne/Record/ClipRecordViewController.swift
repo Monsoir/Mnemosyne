@@ -146,9 +146,6 @@ class ClipRecordViewController: UIViewController {
     /// 视频描述数据
     var assetMeta = MNAssetMeta()
     
-    /// 预览线程
-    let previewQ = DispatchQueue(label: "com.wenyongyang.mnemosyne.preview")
-    
 // MARK: - 系统方法
     override func viewDidLoad() {
         super.viewDidLoad()
