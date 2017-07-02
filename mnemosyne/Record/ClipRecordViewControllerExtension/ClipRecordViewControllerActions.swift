@@ -129,13 +129,36 @@ extension ClipRecordViewController {
     func saveFileAsMOV(completion: @escaping () -> Void) {
         let srcURL = URL(string: assetMeta.location)
         let fileNameWithExtension = srcURL?.lastPathComponent
-        let destURL = FolderURL.clipURL.appendingPathComponent(fileNameWithExtension!)
+        let destURL = FolderURL.clipVideoURL.appendingPathComponent(fileNameWithExtension!)
         
+        var tempAssetMeta = self.assetMeta
+        // 移动文件
         FileManagerShortcuts.moveItemAt(srcURL!, to: destURL) { (result) in
             #if DEBUG
                 print("saveFileAsMOV")
                 print("\(result)")
             #endif
+            
+            // 生成封面，存储到文件系统
+            ClipUtils.thumbnailFromVideo(url: destURL, completion: { (thumbnail) in
+                guard let thumbnail = thumbnail else { return }
+                let thumbnailName = "\(tempAssetMeta.identifier)"
+                let thumbnailPath = FolderURL.clipThumbnail.appendingPathComponent(thumbnailName).appendingPathExtension("png")
+                let thumbnailData = UIImagePNGRepresentation(thumbnail)
+                try? thumbnailData?.write(to: thumbnailPath)
+                
+                // 存储到数据库
+                tempAssetMeta.location = destURL.absoluteString
+                RealmUtils.realmUpdateQ.async {
+                    let asset = tempAssetMeta.asset() as! ClipAsset
+                    asset.thumbnailLocation = thumbnailPath.absoluteString
+                    let realm = try! RealmUtils.updateRealm()!
+                    try! realm.write {
+                        realm.add(asset)
+                    }
+                }
+            })
+            
             completion()
         }
     }

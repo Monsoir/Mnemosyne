@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import AuthorizationKit
 import TinySystemUtils
+import RealmSwift
 
 class ClipViewController: AssetViewController {
     

@@ -149,6 +149,22 @@ NotificationCenter.default.addObserver(self, selector: #selector(ClipRecordViewC
 }
 ```
 
+## 存储一张 UIImage 到沙盒
+
+```swift
+// 为图片起名
+let thumbnailName = "\(tempAssetMeta.identifier)"
+
+// 指定存储路径
+let thumbnailPath = FolderURL.clipThumbnail.appendingPathComponent(thumbnailName).appendingPathExtension("png")
+
+// 将 UIImage 转换为 二进制数据
+let thumbnailData = UIImagePNGRepresentation(thumbnail)
+
+// 调用 NSData 的写方法
+try? thumbnailData?.write(to: thumbnailPath)
+```
+
 ## 简要
 
 - 子类可以直接调用父类的 extension 中的方法
@@ -176,6 +192,4 @@ NotificationCenter.default.addObserver(self, selector: #selector(ClipRecordViewC
 - Xcode 9 中，虽然在目录导航器中拖移文件可以同时实现物理移动，但最好还是逐个移动而不是批处理，否则可能报错
 - Objective-C 中使用 `#pragma mark - ...` 可以对代码进行分段，而 Swift 中使用 `// MARK: ...`
 - 移动 GIF 花费的时间似乎要比移动 mov 要长，即使 GIF 要比 mov 的占用空间小
-
-
 

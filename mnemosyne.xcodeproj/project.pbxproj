@@ -31,7 +31,6 @@
 		F950F2211EED743700E64D25 /* TinySystemUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */; };
 		F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */; };
 		F968F2671EF8B4BE0094BAAC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968F2661EF8B4BE0094BAAC /* AppConstants.swift */; };
-		F969557F1EF7C91600E0CA2D /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969557E1EF7C91600E0CA2D /* Asset.swift */; };
 		F9722B931F03A357004E1A33 /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9722B921F03A357004E1A33 /* RealmUtils.swift */; };
 		F97C6D4B1EF764CE00561E96 /* MediaRecordKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; };
 		F97C6D4C1EF764CE00561E96 /* MediaRecordKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -42,6 +41,9 @@
 		F97E76891F02979100CB2998 /* ClipRecordTopRightFirstBtnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97E76881F02979100CB2998 /* ClipRecordTopRightFirstBtnLayout.swift */; };
 		F97E768B1F0298B200CB2998 /* ClipRecordTopRightRestBtnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97E768A1F0298B200CB2998 /* ClipRecordTopRightRestBtnLayout.swift */; };
 		F97E768D1F029A6E00CB2998 /* ClipRecordBottomBtnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97E768C1F029A6E00CB2998 /* ClipRecordBottomBtnLayout.swift */; };
+		F98428E31F08BABE008511DB /* MNAssetMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98428E21F08BABE008511DB /* MNAssetMeta.swift */; };
+		F98428E51F08BAD4008511DB /* MNAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98428E41F08BAD4008511DB /* MNAsset.swift */; };
+		F98428E71F08CDB4008511DB /* ClipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98428E61F08CDB4008511DB /* ClipUtils.swift */; };
 		F9873EB71EF7BD4100AF87DA /* ClipRecordContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9873EB61EF7BD4000AF87DA /* ClipRecordContants.swift */; };
 		F9885EA81EEA81D60078DAF2 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9885EA71EEA81D60078DAF2 /* testImage.jpg */; };
 		F9885EAA1EEA84980078DAF2 /* MnemosyneViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */; };
@@ -132,7 +134,6 @@
 		F950F21E1EED726D00E64D25 /* TinySystemUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinySystemUtils.framework; sourceTree = "<group>"; };
 		F968F2641EF8B2B20094BAAC /* AppDelegateFileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateFileExtension.swift; sourceTree = "<group>"; };
 		F968F2661EF8B4BE0094BAAC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		F969557E1EF7C91600E0CA2D /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		F9722B921F03A357004E1A33 /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		F97C6D4A1EF764BC00561E96 /* MediaRecordKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaRecordKit.framework; sourceTree = "<group>"; };
 		F97C6D4F1EF78D1800561E96 /* ClipRecordViewControllerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewControllerActions.swift; sourceTree = "<group>"; };
@@ -142,6 +143,9 @@
 		F97E76881F02979100CB2998 /* ClipRecordTopRightFirstBtnLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordTopRightFirstBtnLayout.swift; sourceTree = "<group>"; };
 		F97E768A1F0298B200CB2998 /* ClipRecordTopRightRestBtnLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordTopRightRestBtnLayout.swift; sourceTree = "<group>"; };
 		F97E768C1F029A6E00CB2998 /* ClipRecordBottomBtnLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordBottomBtnLayout.swift; sourceTree = "<group>"; };
+		F98428E21F08BABE008511DB /* MNAssetMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNAssetMeta.swift; sourceTree = "<group>"; };
+		F98428E41F08BAD4008511DB /* MNAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNAsset.swift; sourceTree = "<group>"; };
+		F98428E61F08CDB4008511DB /* ClipUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipUtils.swift; sourceTree = "<group>"; };
 		F9873EB61EF7BD4000AF87DA /* ClipRecordContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordContants.swift; sourceTree = "<group>"; };
 		F9885EA71EEA81D60078DAF2 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = ../../../../Pictures/testImage.jpg; sourceTree = "<group>"; };
 		F9885EA91EEA84980078DAF2 /* MnemosyneViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemosyneViewable.swift; sourceTree = "<group>"; };
@@ -325,7 +329,8 @@
 		F969557D1EF7C90300E0CA2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F969557E1EF7C91600E0CA2D /* Asset.swift */,
+				F98428E41F08BAD4008511DB /* MNAsset.swift */,
+				F98428E21F08BABE008511DB /* MNAssetMeta.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			children = (
 				F9F39DBF1EEFA14500EF365F /* MNKeyValueObserver.swift */,
 				F9722B921F03A357004E1A33 /* RealmUtils.swift */,
+				F98428E61F08CDB4008511DB /* ClipUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -699,12 +705,13 @@
 				F946BE321EE92DDA00A096D3 /* BaseViewController.swift in Sources */,
 				F9C45C4F1EEA3E3E00EFA6B3 /* Listable.swift in Sources */,
 				F97E768B1F0298B200CB2998 /* ClipRecordTopRightRestBtnLayout.swift in Sources */,
-				F969557F1EF7C91600E0CA2D /* Asset.swift in Sources */,
 				F968F2651EF8B2B20094BAAC /* AppDelegateFileExtension.swift in Sources */,
+				F98428E51F08BAD4008511DB /* MNAsset.swift in Sources */,
 				F97E76891F02979100CB2998 /* ClipRecordTopRightFirstBtnLayout.swift in Sources */,
 				F931E8C81EEE43740054ADD7 /* ClipRecordViewController.swift in Sources */,
 				F9722B931F03A357004E1A33 /* RealmUtils.swift in Sources */,
 				F9BB3B1C1EE7FCD400770A01 /* Tabbarable.swift in Sources */,
+				F98428E71F08CDB4008511DB /* ClipUtils.swift in Sources */,
 				F9BB3B1A1EE7FB6400770A01 /* SettingViewController.swift in Sources */,
 				F97C6D561EF791A700561E96 /* ClipRecordViewControllerDelegates.swift in Sources */,
 				F9BB3B181EE7FB5D00770A01 /* PicViewController.swift in Sources */,
@@ -717,6 +724,7 @@
 				F9885EB21EEAA21C0078DAF2 /* PicCollectionViewCell.swift in Sources */,
 				F9F39DC01EEFA14500EF365F /* MNKeyValueObserver.swift in Sources */,
 				F94423871EE0073500155A18 /* Modelable.swift in Sources */,
+				F98428E31F08BABE008511DB /* MNAssetMeta.swift in Sources */,
 				F93C54191EF37E4A00C31E5F /* Layoutable.swift in Sources */,
 				F9C45C541EEA407E00EFA6B3 /* UIContants.swift in Sources */,
 				F97C6D541EF790DC00561E96 /* ClipRecordViewControllerKVO.swift in Sources */,

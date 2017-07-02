@@ -13,7 +13,8 @@ import FileManagerShortcutKit
 ///
 func createAssetFolders() {
     FileManagerShortcuts.createFolderAt(FolderURL.databasesURL, completion: nil)
-    FileManagerShortcuts.createFolderAt(FolderURL.clipURL, completion: nil)
+    FileManagerShortcuts.createFolderAt(FolderURL.clipVideoURL, completion: nil)
+    FileManagerShortcuts.createFolderAt(FolderURL.clipThumbnail, completion: nil)
     FileManagerShortcuts.createFolderAt(FolderURL.soundURL, completion: nil)
     FileManagerShortcuts.createFolderAt(FolderURL.picURL, completion: nil)
 }
